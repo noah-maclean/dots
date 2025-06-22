@@ -1,0 +1,18 @@
+0000000000000000000000000000000000000000 3b2016a46b11a2e80488b4e538c75ac6e5f3dba5 Noah Maclean <noahmac5000@hotmail.com> 1740162949 +0000	initial pull
+3b2016a46b11a2e80488b4e538c75ac6e5f3dba5 3b2016a46b11a2e80488b4e538c75ac6e5f3dba5 Noah Maclean <noahmac5000@hotmail.com> 1740354168 +0000	reset: moving to HEAD
+3b2016a46b11a2e80488b4e538c75ac6e5f3dba5 9afa959711eb029055d3b7745d78eeb531f23a08 Noah Maclean <noahmac5000@hotmail.com> 1740354171 +0000	pull: Fast-forward
+9afa959711eb029055d3b7745d78eeb531f23a08 9afa959711eb029055d3b7745d78eeb531f23a08 Noah Maclean <noahmac5000@hotmail.com> 1740697066 +0000	reset: moving to HEAD
+9afa959711eb029055d3b7745d78eeb531f23a08 e88cf091ae25dfcd841d382e00ca7d5353781a77 Noah Maclean <noahmac5000@hotmail.com> 1740697076 +0000	pull: Fast-forward
+e88cf091ae25dfcd841d382e00ca7d5353781a77 e88cf091ae25dfcd841d382e00ca7d5353781a77 Noah Maclean <noahmac5000@hotmail.com> 1741621503 +0000	reset: moving to HEAD
+e88cf091ae25dfcd841d382e00ca7d5353781a77 3786cff8dfa26f8a051e1f8c00ef56a14b756253 Noah Maclean <noahmac5000@hotmail.com> 1741621505 +0000	pull: Fast-forward
+3786cff8dfa26f8a051e1f8c00ef56a14b756253 3786cff8dfa26f8a051e1f8c00ef56a14b756253 Noah Maclean <noahmac5000@hotmail.com> 1742084055 +0000	reset: moving to HEAD
+3786cff8dfa26f8a051e1f8c00ef56a14b756253 f2dbd236862d89994ba0bfe47701c5d805fe54aa Noah Maclean <noahmac5000@hotmail.com> 1742084058 +0000	pull: Fast-forward
+f2dbd236862d89994ba0bfe47701c5d805fe54aa 3227a0cafca11afeae54a3025bd5157478aab7ef Noah Maclean <noahmac5000@hotmail.com> 1744679171 +0000	pull: Fast-forward
+3227a0cafca11afeae54a3025bd5157478aab7ef 3227a0cafca11afeae54a3025bd5157478aab7ef Noah Maclean <noahmac5000@hotmail.com> 1745853158 +0000	reset: moving to HEAD
+3227a0cafca11afeae54a3025bd5157478aab7ef d22c56bd44cdd2e21a070a9186a7b047d6ba6197 Noah Maclean <noahmac5000@hotmail.com> 1745853262 +0000	pull: Fast-forward
+d22c56bd44cdd2e21a070a9186a7b047d6ba6197 d22c56bd44cdd2e21a070a9186a7b047d6ba6197 Noah Maclean <noahmac5000@hotmail.com> 1747517172 +0100	reset: moving to HEAD
+d22c56bd44cdd2e21a070a9186a7b047d6ba6197 d22c56bd44cdd2e21a070a9186a7b047d6ba6197 Noah Maclean <noahmac5000@hotmail.com> 1747743317 +0100	checkout: moving from main to arch
+d22c56bd44cdd2e21a070a9186a7b047d6ba6197 3fd559722c54878be2f7637fc2ee5fed8d9fe01c Noah Maclean <noahmac5000@hotmail.com> 1747747170 +0100	commit: made tokyonight transparent
+3fd559722c54878be2f7637fc2ee5fed8d9fe01c b9d58671bf7d9e4e616e2635b6f140c142f5a654 Noah Maclean <noahmac5000@hotmail.com> 1747747283 +0100	commit: changed readme to correct installation for arch
+b9d58671bf7d9e4e616e2635b6f140c142f5a654 1829d2f4b9f6330c4a6690a3b29c68a2cb976019 Noah Maclean <noahmac5000@hotmail.com> 1747747626 +0100	commit: changed readme to correct branch to pull
+1829d2f4b9f6330c4a6690a3b29c68a2cb976019 69238f22246bbbb26f07f3e4f6806ca6c46d706c Noah Maclean <noahmac5000@hotmail.com> 1749948512 +0100	pull: Fast-forward
