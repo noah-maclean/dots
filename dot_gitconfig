@@ -1,0 +1,7 @@
+[user]
+	name = Noah Maclean
+	email = noahmac5000@hotmail.com
+[init]
+	defaultBranch = main
+[push]
+	autoSetupRemote = true
