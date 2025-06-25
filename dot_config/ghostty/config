@@ -48,6 +48,8 @@ font-family = "JetBrains Mono"
 font-style = "Bold"
 font-style-italic = "Bold Italic"
 
+cursor-style = bar
+
 background-opacity = 0.8
 background-blur = true
 
