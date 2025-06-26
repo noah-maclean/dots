@@ -145,3 +145,6 @@ alias cd="z"
 
 # thefuck (fuck) fixes command
 eval $(thefuck --alias)
+
+# bat (better cat)
+alias cat="bat"
