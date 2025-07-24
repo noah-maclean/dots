@@ -4,7 +4,7 @@
   "scalingPriority": "gdk",
   "theme.osd.scaling": 75,
   "theme.bar.scaling": 85,
-  "theme.bar.floating": true,
+  "theme.bar.floating": false,
   "theme.bar.buttons.enableBorders": false,
   "theme.bar.border.location": "none",
   "theme.bar.enableShadow": false,
@@ -509,5 +509,9 @@
   "bar.customModules.hypridle.label": false,
   "bar.media.show_active_only": false,
   "bar.media.format": "{title: - }{artist}",
-  "theme.bar.buttons.media.enableBorder": false
+  "theme.bar.buttons.media.enableBorder": false,
+  "bar.customModules.storage.paths": ["/"],
+  "theme.bar.border.width": "0.15em",
+  "theme.bar.outer_spacing": "0.5em",
+  "theme.bar.buttons.padding_x": "0.5rem"
 }
