@@ -114,7 +114,7 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # eza (better ls)
-alias ls="eza --icons -x"
+alias ls="eza --icons -x --group-directories-first"
 
 # c is clear
 alias c="clear"
