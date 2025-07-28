@@ -57,7 +57,7 @@
       "right": ["volume", "clock", "notifications"]
     }
   },
-  "bar.clock.format": "%H:%M %d/%m/%y",
+  "bar.clock.format": "%H:%M | %d/%m/%y",
   "bar.media.truncation": true,
   "bar.notifications.show_total": true,
   "menus.media.hideAuthor": false,
@@ -504,7 +504,7 @@
   "bar.customModules.updates.autoHide": true,
   "bar.customModules.updates.label": true,
   "bar.customModules.cava.highCutoff": 10009,
-  "menus.power.lowBatteryNotification": false,
+  "menus.power.lowBatteryNotification": true,
   "bar.windowtitle.truncation_size": 45,
   "bar.customModules.hypridle.label": false,
   "bar.media.show_active_only": false,
