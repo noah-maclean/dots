@@ -151,3 +151,6 @@ alias cat="bat"
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
+
+# Save screenshots in screenshot folder
+export HYPRSHOT_DIR="$HOME/Pictures/Screenshots/"
