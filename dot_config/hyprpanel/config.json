@@ -513,5 +513,7 @@
   "bar.customModules.storage.paths": ["/"],
   "theme.bar.border.width": "0.15em",
   "theme.bar.outer_spacing": "0.5em",
-  "theme.bar.buttons.padding_x": "0.5rem"
+  "theme.bar.buttons.padding_x": "0.5rem",
+  "bar.volume.scrollUp": "hyprpanel vol -5",
+  "bar.volume.scrollDown": "hyprpanel vol +5"
 }
