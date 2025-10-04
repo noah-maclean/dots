@@ -151,3 +151,5 @@ alias cat="bat"
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
+
+export PATH=/sbin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/noah_maclean/.local/bin
