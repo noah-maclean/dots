@@ -55,4 +55,4 @@ background-opacity = 0.8
 background-blur = true
 
 confirm-close-surface = false
-resize-overlay = never
+# resize-overlay = never
