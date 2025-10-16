@@ -1,3 +1,4 @@
+-- obsidian nvim - allows obsidian vault files to be traversed properly in nvim
 return {
 	"obsidian-nvim/obsidian.nvim",
 	version = "*", -- recommended, use latest release instead of latest commit
