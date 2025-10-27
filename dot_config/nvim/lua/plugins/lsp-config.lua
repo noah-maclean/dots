@@ -25,6 +25,13 @@ return {
 				-- ts_ls for javascript (typescript)
 				-- cssls for css
 				ensure_installed = { "lua_ls", "ts_ls", "cssls" },
+				ui = {
+					icons = {
+						package_installed = "✓",
+						package_pending = "➜",
+						package_uninstalled = "✗",
+					},
+				},
 			})
 
 			-- let completions use the lsp data
