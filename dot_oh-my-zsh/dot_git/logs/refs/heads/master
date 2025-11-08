@@ -1,6 +1,0 @@
-0000000000000000000000000000000000000000 db32c6ccce91e0b36873c8bfccd1e40f452a2060 noah_maclean <noah_maclean@arch-btw.(none)> 1739064984 +0000	branch: Created from origin/master
-db32c6ccce91e0b36873c8bfccd1e40f452a2060 6e7ac0544e71c7b777746cb50f70de68c6495b86 Noah Maclean <noahmac5000@hotmail.com> 1740703546 +0000	pull --quiet --rebase origin master: Fast-forward
-6e7ac0544e71c7b777746cb50f70de68c6495b86 a84a0332a822a78ddf3f66d0e1ed3990d4badd12 Noah Maclean <noahmac5000@hotmail.com> 1744679155 +0000	pull --quiet --rebase origin master: Fast-forward
-a84a0332a822a78ddf3f66d0e1ed3990d4badd12 f6a7bbf81a18d30f75bad72de3398d0f55c8792b Noah Maclean <noahmac5000@hotmail.com> 1746141034 +0000	pull --quiet --rebase origin master: Fast-forward
-f6a7bbf81a18d30f75bad72de3398d0f55c8792b c95509ebfdbcc3c497f12697cfd2717bcb0a528b Noah Maclean <noahmac5000@hotmail.com> 1747516494 +0100	pull --quiet --rebase origin master: Fast-forward
-c95509ebfdbcc3c497f12697cfd2717bcb0a528b 3ff8c7ef678a990a88ca988c3a4f007296af4934 Noah Maclean <noahmac5000@hotmail.com> 1749520165 +0100	pull --quiet --rebase origin master: Fast-forward
