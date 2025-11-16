@@ -24,6 +24,9 @@ opt.termguicolors = true
 -- ignore case (e.g. in search)
 opt.ignorecase = true
 
+-- add a border to windows
+vim.o.winborder = "rounded"
+
 -- fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
 
