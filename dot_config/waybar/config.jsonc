@@ -7,7 +7,7 @@
 
   // Choose the order of the modules
   "modules-left": ["hyprland/workspaces", "hyprland/window"],
-  "modules-center": [],
+  "modules-center": ["mpris"],
   "modules-right": [
     "tray",
     "idle_inhibitor",
@@ -20,6 +20,24 @@
     "custom/power",
   ],
 
+  "mpris": {
+    "format": "{player_icon}  {dynamic}",
+    "format-paused": "{status_icon}  <i>{dynamic}</i>",
+    "player-icons": {
+      // "default": "",
+      "default": "",
+      // "mpv": "🎵"
+    },
+    "status-icons": {
+      "paused": ""
+    },
+    "dynamic-order": ["title", "artist", "position", "length"],
+    "dynamic-len": 60,
+    "interval": 1
+    
+    // "ignored-players": ["firefox"]
+  },
+
   "idle_inhibitor": {
     "format": "{icon}",
     "tooltip-format-activated": "Idle Inhibitor: {status}" ,
@@ -31,8 +49,8 @@
   },
 
   "network": {
-    "tooltip-format": "Configure network (nmtui)",
-    "format-wifi": "({signalStrength}%)  ",
+    "tooltip-format": "Configure network - {essid} (nmtui)",
+    "format-wifi": "  ({signalStrength}%)",
     "format-ethernet": " ",
     "format-disconnected": "󰖪 ",
     "max-length": 50,
@@ -45,7 +63,7 @@
     "format": "{icon} {volume}%",
     "format-bluetooth": "{icon} {volume}%  {format_source}",
     "format-bluetooth-muted": " {icon} {format_source}",
-    "format-muted": "  0%",
+    "format-muted": "  0%",
     "format-source": " {volume}%",
     "format-source-muted": "",
     // "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
@@ -60,9 +78,9 @@
 
   "bluetooth": {
     "format": "󰂲",
-    "format-on": "{icon}",
-    "format-off": "{icon}",
-    "format-connected": "{icon}",
+    "format-on": "{icon} On",
+    "format-off": "{icon} Off",
+    "format-connected": "{icon} On",
     "format-icons": {
       "on": "󰂯",
       "off": "󰂲",
@@ -113,9 +131,9 @@
     "format": "{icon} {capacity}%",
     "format-charging": " {capacity}%",
     "format-plugged": "󱘖 {capacity}%",
-    "format-alt-click": "click",
+    // "format-alt-click": "click",
     "format-full": "{icon} Full",
-    "format-alt": "{icon} {time}",
+    // "format-alt": "{icon} {time}",
     "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
     "format-time": "{H}h {M}min",
     "tooltip": true,

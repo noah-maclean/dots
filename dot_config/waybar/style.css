@@ -2,7 +2,7 @@
     border: none;
     border-radius: 10;
     font-family: "JetBrainsMono Nerd Font";
-    font-size: 16px;
+    font-size: 14px;
     min-height: 10px;
     transition: background-color 0.3s ease-out;
 }
@@ -38,7 +38,8 @@ window#waybar {
 #battery,
 #tray,
 #idle_inhibitor,
-#backlight-slider {
+#backlight-slider,
+#mpris {
     padding: 0px 10px;
     background: rgba(6, 8, 28, 0.5);
     /* background: transparent; */
@@ -58,7 +59,8 @@ window#waybar {
 #battery:hover,
 #tray:hover
 #idle_inhibitor:hover,
-#backlight-slider:hover {
+#backlight-slider:hover,
+#mpris {
     background: rgba(6, 8, 28, 0.95);
     color: #cdd6f4;
 }
