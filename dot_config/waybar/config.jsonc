@@ -15,10 +15,17 @@
     "pulseaudio",
     "bluetooth",
     "clock",
-    "backlight/slider",
+    // "backlight/slider",
     "battery",
     "custom/power",
   ],
+
+  "hyprland/window": {
+    "format": "{initialTitle} - {title}",
+    "max-length": 40,
+    "icon": true,
+    "icon-size": 20,
+  },
 
   "mpris": {
     "format": "{player_icon}  {dynamic}",
@@ -49,10 +56,10 @@
   },
 
   "network": {
-    "tooltip-format": "Configure network - {essid} (nmtui)",
-    "format-wifi": "  ({signalStrength}%)",
-    "format-ethernet": " ",
+    "format-wifi": "  [{essid}] ({signalStrength}%)",
+    "format-ethernet": "  [{essid}] ({signalStrength}%)",
     "format-disconnected": "󰖪 ",
+    "tooltip-format": "Configure network - {essid} (nmtui)",
     "max-length": 50,
     "on-click": "ghostty -e nmtui",
   },
@@ -60,10 +67,11 @@
   "pulseaudio": {
     "tooltip-format": "Configure outputs (pavucontrol)",
     "scroll-step": 5,
-    "format": "{icon} {volume}%",
+    "reverse-scrolling": true,
+    "format": "{icon}  {volume}%",
     "format-bluetooth": "{icon} {volume}%  {format_source}",
     "format-bluetooth-muted": " {icon} {format_source}",
-    "format-muted": "  0%",
+    "format-muted": "  {volume}%",
     "format-source": " {volume}%",
     "format-source-muted": "",
     // "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
@@ -72,6 +80,8 @@
       // "headphone": "",
       // "hands-free": "",
       // "headset": "",
+      // one icon for every 5% step
+      // "default": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
       "default": ["", "", ""],
     },
   },
@@ -87,7 +97,8 @@
       "connected": "󰂱",
     },
     "on-click": "blueman-manager",
-    "tooltip-format-connected": "{device_enumerate}",
+    "tooltip-format": "Configure devices (blueman-manager)",
+    "tooltip-format-connected": "Configure devices (blueman-manager) {device_enumerate}",
   },
 
   "clock": {
@@ -108,12 +119,12 @@
     },
   },
 
-  "backlight/slider": {
-    "min": 0,
-    "max": 100,
-    "orientation": "horizontal",
-    "device": "intel_backlight"
-  }, 
+  // "backlight/slider": {
+  //   "min": 0,
+  //   "max": 100,
+  //   "orientation": "horizontal",
+  //   "device": "intel_backlight"
+  // }, 
 
   "battery": {
     //"interval": 5,
@@ -143,7 +154,7 @@
   },
 
   "custom/power": {
-    "format": "⏻ ",
+    "format": "⏻",
     "tooltip-format": "Power menu",
     "on-click": "wlogout --protocol layer-shell",
   },
