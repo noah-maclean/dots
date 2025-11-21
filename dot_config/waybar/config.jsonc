@@ -10,9 +10,10 @@
   "modules-center": ["mpris"],
   "modules-right": [
     "tray",
+    "custom/updates",
     "idle_inhibitor",
-    "network",
     "pulseaudio",
+    "network",
     "bluetooth",
     "clock",
     // "backlight/slider",
@@ -40,9 +41,22 @@
     },
     "dynamic-order": ["title", "artist", "position", "length"],
     "dynamic-len": 60,
-    "interval": 1
+    "interval": 1,
     
     // "ignored-players": ["firefox"]
+  },
+
+  // `yay -S waybar-module-pacman-updates`
+  "custom/updates": {
+      "format": "{}{icon}",
+      "return-type": "json",
+      "format-icons": {
+          "has-updates": " 󰏗",
+          "updated": "󰏖"
+      },
+      "exec-if": "which waybar-module-pacman-updates",
+      // "exec": "waybar-module-pacman-updates --no-zero-output --color-semver-updates 'fa5448,fa9848,fae248,d3fa48,73db56' --tooltip-align-columns 'JetBrainsMono Nerd Font'"
+      "exec": "waybar-module-pacman-updates --no-zero-output --color-semver-updates 'fa5448,fa9848,fae248,d3fa48,73db56' --tooltip-align-columns 'JetBrainsMono Nerd Font'"
   },
 
   "idle_inhibitor": {
@@ -56,26 +70,34 @@
   },
 
   "network": {
+    // TODO: nm-applet
     "format-wifi": "  [{essid}] ({signalStrength}%)",
-    "format-ethernet": "  [{essid}] ({signalStrength}%)",
+    "format-ethernet": " ",
     "format-disconnected": "󰖪 ",
-    "tooltip-format": "Configure network - {essid} (nmtui)",
+    // "tooltip-format": "Configure network - {essid} (nmtui)",
+    "tooltip-format": "Configure network - {essid} (nmrs)",
+    // "tooltip-format-ethernet": "Configure network (nmtui)",
+    "tooltip-format-ethernet": "Configure network (nmrs)",
+    // "tooltip-format-disconnected": "Configure network (nmtui)",
+    "tooltip-format-disconnected": "Configure network (nmrs)",
     "max-length": 50,
-    "on-click": "ghostty -e nmtui",
+    "on-click": "nmrs",
   },
 
   "pulseaudio": {
-    "tooltip-format": "Configure outputs (pavucontrol)",
+    "tooltip-format": "Configure outputs (pavucontrol)\n{icon} {desc}",
     "scroll-step": 5,
     "reverse-scrolling": true,
     "format": "{icon}  {volume}%",
-    "format-bluetooth": "{icon} {volume}%  {format_source}",
-    "format-bluetooth-muted": " {icon} {format_source}",
+    // "format-bluetooth": "{icon}  {volume}%  {format_source}",
+    "format-bluetooth": " {volume}%",
+    // "format-bluetooth-muted": "   {format_source}",
+    "format-bluetooth-muted": "  {volume}%",
     "format-muted": "  {volume}%",
     "format-source": " {volume}%",
     "format-source-muted": "",
-    // "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
     "on-click": "pavucontrol",
+    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
     "format-icons": {
       // "headphone": "",
       // "hands-free": "",
@@ -90,15 +112,18 @@
     "format": "󰂲",
     "format-on": "{icon} On",
     "format-off": "{icon} Off",
-    "format-connected": "{icon} On",
+    "format-connected": "{icon} On ({num_connections})",
     "format-icons": {
       "on": "󰂯",
       "off": "󰂲",
       "connected": "󰂱",
     },
     "on-click": "blueman-manager",
-    "tooltip-format": "Configure devices (blueman-manager)",
-    "tooltip-format-connected": "Configure devices (blueman-manager) {device_enumerate}",
+    "tooltip-format": "Configure bluetooth (blueman-manager)",
+    "tooltip-format-connected": "Configure devices (blueman-manager):\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}",
+    // "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_battery_percentage}%"
+    "tooltip-format-enumerate-connected-battery": "{device_alias}: {device_battery_percentage}%"
   },
 
   "clock": {
@@ -110,13 +135,21 @@
     "calendar": {
       "mode": "month",
       "format": {
-        "months": "<span font-size='medium' color='#c0caf5'><b><u>{}</u></b></span>",
-        "days": "<span color='#c0caf5'><b>{}</b></span>",
-        "weeks": "<span color='#c0caf5'><b>W{}</b></span>",
-        "weekdays": "<span color='#c0caf5'><b>{}</b></span>",
-        "today": "<span color='#4472bd'><b><u>{}</u></b></span>",
+        "months": "<span font-family='JetBrainsMono Nerd Font' font-size='medium' color='#c0caf5'><b><u>{}</u></b></span>",
+        "days": "<span font-family='JetBrainsMono Nerd Font' color='#c0caf5'><b>{}</b></span>",
+        "weeks": "<span font-family='JetBrainsMono Nerd Font' color='#c0caf5'><b>W{}</b></span>",
+        "weekdays": "<span font-family='JetBrainsMono Nerd Font' color='#c0caf5'><b>{}</b></span>",
+        "today": "<span font-family='JetBrainsMono Nerd Font' color='#4472bd'><b><u>{}</u></b></span>",
       },
     },
+
+    "actions":  {
+                    "on-click-right": "mode",
+                    // "on-scroll-up": "tz_up",
+                    // "on-scroll-down": "tz_down",
+                    "on-scroll-up": "shift_up",
+                    "on-scroll-down": "shift_down"
+                    }
   },
 
   // "backlight/slider": {
@@ -127,7 +160,7 @@
   // }, 
 
   "battery": {
-    //"interval": 5,
+    "interval": 5,
     "align": 0,
     "rotate": 0,
     //"bat": "BAT1",
@@ -143,7 +176,7 @@
     "format-charging": " {capacity}%",
     "format-plugged": "󱘖 {capacity}%",
     // "format-alt-click": "click",
-    "format-full": "{icon} Full",
+    "format-full": "󱟢 100%",
     // "format-alt": "{icon} {time}",
     "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
     "format-time": "{H}h {M}min",

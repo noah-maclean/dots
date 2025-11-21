@@ -8,7 +8,7 @@
 }
 
 window#waybar {
-    background: rgba(32, 34, 48, 0.6);
+    background: rgba(32, 34, 48, 0);
     color: #24283b;
     transition: background-color 0.5s;
 }
@@ -34,6 +34,17 @@ window#waybar {
     padding: 0px 10px;
 }
 
+tooltip {
+    background: rgba(6, 8, 28, 0.95);
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: 900;
+    color: #c0caf5;
+}
+
+/* tooltip label { */
+/*     color: white; */
+/* } */
+
 #clock,
 #pulseaudio,
 #bluetooth,
@@ -44,7 +55,8 @@ window#waybar {
 #tray,
 #idle_inhibitor,
 #backlight-slider,
-#mpris {
+#mpris,
+#custom-updates {
     padding: 0px 10px;
     background: rgba(6, 8, 28, 0.5);
     /* background: transparent; */
@@ -62,10 +74,10 @@ window#waybar {
 #window:hover,
 #network:hover,
 #battery:hover,
-#tray:hover
-#idle_inhibitor:hover,
+#tray:hover #idle_inhibitor:hover,
 #backlight-slider:hover,
-#mpris {
+#mpris:hover, 
+#custom-updates:hover {
     background: rgba(6, 8, 28, 0.95);
     color: #cdd6f4;
 }
