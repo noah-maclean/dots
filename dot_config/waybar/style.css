@@ -37,7 +37,7 @@ window#waybar {
 tooltip {
     background: rgba(6, 8, 28, 0.95);
     font-family: "JetBrainsMono Nerd Font";
-    font-weight: 900;
+    font-weight: 600;
     color: #c0caf5;
 }
 
@@ -61,7 +61,7 @@ tooltip {
     background: rgba(6, 8, 28, 0.5);
     /* background: transparent; */
     font-family: "JetBrainsMono Nerd Font";
-    font-weight: 900;
+    font-weight: 600;
     color: #c0caf5;
     border: none;
     border-radius: 15px;
@@ -91,7 +91,7 @@ tooltip {
     /* background: transparent; */
     background: rgba(6, 8, 28, 0.5);
     font-family: "JetBrainsMono Nerd Font";
-    font-weight: 900;
+    font-weight: 600;
     color: #d5dcf5;
     border: none;
     border-radius: 15px;

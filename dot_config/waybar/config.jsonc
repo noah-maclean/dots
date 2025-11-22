@@ -71,6 +71,7 @@
 
   "network": {
     // TODO: nm-applet
+    "format": " ",
     "format-wifi": "  [{essid}] ({signalStrength}%)",
     "format-ethernet": " ",
     "format-disconnected": "󰖪 ",
