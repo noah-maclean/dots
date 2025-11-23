@@ -89,6 +89,7 @@
     "tooltip-format": "Configure outputs (pavucontrol)\n{icon} {desc}",
     "scroll-step": 5,
     "reverse-scrolling": true,
+    "smooth-scrolling-threshold": 5,
     "format": "{icon}  {volume}%",
     // "format-bluetooth": "{icon}  {volume}%  {format_source}",
     "format-bluetooth": " {volume}%",
