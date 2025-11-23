@@ -15,6 +15,12 @@ opt.softtabstop = 4
 opt.number = true
 opt.relativenumber = true
 
+-- highlight line cursor is on
+opt.cursorline = true
+
+-- break wrapped lines nicely 
+opt.linebreak = true
+
 -- set the number of lines to keep above and below the cursor
 opt.scrolloff = 10
 
@@ -23,6 +29,9 @@ opt.termguicolors = true
 
 -- ignore case (e.g. in search)
 opt.ignorecase = true
+
+-- save undos when file closed
+opt.undofile = true
 
 -- add a border to windows
 vim.o.winborder = "rounded"
