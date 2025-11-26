@@ -56,7 +56,8 @@ tooltip {
 #idle_inhibitor,
 #backlight-slider,
 #mpris,
-#custom-updates {
+#custom-updates,
+#custom-arch {
     padding: 0px 10px;
     background: rgba(6, 8, 28, 0.5);
     /* background: transparent; */
@@ -74,10 +75,12 @@ tooltip {
 #window:hover,
 #network:hover,
 #battery:hover,
-#tray:hover #idle_inhibitor:hover,
+#tray:hover,
+#idle_inhibitor:hover,
 #backlight-slider:hover,
 #mpris:hover, 
-#custom-updates:hover {
+#custom-updates:hover,
+#custom-arch:hover {
     background: rgba(6, 8, 28, 0.95);
     color: #cdd6f4;
 }
@@ -85,6 +88,17 @@ tooltip {
 #custom-power {
     font-size: 18px;
     padding: 0px 10px 0px 6px;
+}
+
+#custom-arch {
+    font-size: 22px;
+    color: white;
+    padding: 0px 11px 0px 6px;
+    background: #1793D1;
+}
+
+#custom-arch:hover {
+    background: rgba(23, 147, 209, 0.8);
 }
 
 #workspaces button {
