@@ -15,6 +15,9 @@ opt.softtabstop = 4
 opt.number = true
 opt.relativenumber = true
 
+-- enable sign column
+opt.signcolumn = "yes"
+
 -- highlight line cursor is on
 opt.cursorline = true
 
