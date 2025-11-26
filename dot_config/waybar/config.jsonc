@@ -75,13 +75,13 @@
   },
 
   "network": {
-    // TODO: nm-applet
     "format": " ",
     "format-wifi": "  [{essid}] ({signalStrength}%)",
     "format-ethernet": " ",
     "format-disconnected": "󰖪 ",
     // "tooltip-format": "Configure network - {essid} (nmtui)",
-    "tooltip-format": "Configure network - {essid} (nmrs)",
+    "tooltip-format": "Configure network (nmrs)",
+    "tooltip-format-wifi": "Configure network - [{essid}] (nmrs)",
     // "tooltip-format-ethernet": "Configure network (nmtui)",
     "tooltip-format-ethernet": "Configure network (nmrs)",
     // "tooltip-format-disconnected": "Configure network (nmtui)",
