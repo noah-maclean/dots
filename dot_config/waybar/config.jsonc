@@ -63,8 +63,9 @@
           "updated": "󰏖"
       },
       "exec-if": "which waybar-module-pacman-updates",
-      // "exec": "waybar-module-pacman-updates --no-zero-output --color-semver-updates 'fa5448,fa9848,fae248,d3fa48,73db56' --tooltip-align-columns 'JetBrainsMono Nerd Font'"
-      "exec": "waybar-module-pacman-updates --no-zero-output --color-semver-updates 'fa5448,fa9848,fae248,d3fa48,73db56' --tooltip-align-columns 'JetBrainsMono Nerd Font'"
+      // network-interval-seconds: interval between network updates (seconds)
+      // color-semver-updates: Major, Minor, Patch, Pre, Other
+      "exec": "waybar-module-pacman-updates --network-interval-seconds 150 --no-zero-output --color-semver-updates 'fa5448,fa9848,fae248,d3fa48,73db56' --tooltip-align-columns 'JetBrainsMono Nerd Font'"
   },
 
   "idle_inhibitor": {
