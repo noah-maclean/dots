@@ -75,10 +75,13 @@
   },
 
   "network": {
-    "format": " ",
-    "format-wifi": "  [{essid}] ({signalStrength}%)",
+    // "format": " ",
+    "format": "󰤯 ",
+    // "format-wifi": "  [{essid}] ({signalStrength}%)",
+    "format-wifi": "{icon}  [{essid}] ({signalStrength}%)",
     "format-ethernet": " ",
-    "format-disconnected": "󰖪 ",
+    // "format-disconnected": "󰖪 ",
+    "format-disconnected": "󰤭 ",
     // "tooltip-format": "Configure network - {essid} (nmtui)",
     "tooltip-format": "Configure network (nmrs)",
     "tooltip-format-wifi": "Configure network - [{essid}] (nmrs)",
@@ -88,6 +91,8 @@
     "tooltip-format-disconnected": "Configure network (nmrs)",
     "max-length": 50,
     "on-click": "nmrs",
+    "format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"],
+    "interval": 10,
   },
 
   "pulseaudio": {
