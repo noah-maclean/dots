@@ -16,7 +16,6 @@
     "network",
     "bluetooth",
     "clock",
-    // "backlight/slider",
     "battery",
     "custom/power",
   ],
@@ -49,6 +48,10 @@
     "interval": 1,
     
     // "ignored-players": ["firefox"]
+  },
+
+  "tray": {
+    "spacing": 2,
   },
 
   // `yay -S waybar-module-pacman-updates`
