@@ -23,7 +23,9 @@
 
   "custom/arch": {
     "format": "󰣇",
-    "tooltip": false,
+    "tooltip": true,
+    "tooltip-format": "Change wallpaper (waypaper)",
+    "on-click": "waypaper",
   },
 
   "hyprland/window": {
