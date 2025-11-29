@@ -17,6 +17,7 @@
     "bluetooth",
     "clock",
     "battery",
+    "custom/notifications",
     "custom/power",
   ],
 
@@ -200,6 +201,27 @@
     "tooltip-format": "{timeTo} {power}w",
     // "on-click-middle": "$HOME/.config/hypr/scripts/ChangeBlur.sh",
     // "on-click-right": "$HOME/.config/hypr/scripts/Wlogout.sh",
+  },
+
+  "custom/notifications": {
+    "tooltip": true,
+    "format": "{0} {icon}",
+    "format-icons": {
+      "notification": "󱅫 ",
+      "none": "󰂜",
+      "dnd-notification": "󰂠",
+      "dnd-none": "󰪓",
+      "inhibited-notification": "󰂛",
+      "inhibited-none": "󰪑",
+      "dnd-inhibited-notification": "󰂛",
+      "dnd-inhibited-none": "󰪑"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
   },
 
   "custom/power": {

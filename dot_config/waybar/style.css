@@ -16,7 +16,7 @@ window#waybar {
 .modules-left,
 .modules-center,
 .modules-right {
-    margin: 5px 5px;
+    margin: 8px 5px;
     /* margin: 5px 10px; */
     padding: 0px 5px;
     border-radius: 15px;
@@ -57,7 +57,8 @@ tooltip {
 #backlight-slider,
 #mpris,
 #custom-updates,
-#custom-arch {
+#custom-arch,
+#custom-notifications {
     padding: 0px 10px;
     background: rgba(6, 8, 28, 0.5);
     /* background: transparent; */
@@ -80,7 +81,8 @@ tooltip {
 #backlight-slider:hover,
 #mpris:hover, 
 #custom-updates:hover,
-#custom-arch:hover {
+#custom-arch:hover,
+#custom-notifications:hover {
     background: rgba(6, 8, 28, 0.95);
     color: #cdd6f4;
 }

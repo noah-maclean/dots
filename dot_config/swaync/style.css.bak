@@ -1,0 +1,70 @@
+:root {
+  --border-radius: 16px;
+  --cc-bg: transparent;
+
+  --widget-background: rgba(6, 8, 28, 0.5);
+  --noti-bg-alpha: 0.6;
+
+  --padding: calc(var(--border-radius) / 2);
+  --margin: 4px;
+}
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: 600;
+    margin: var(--margin);
+}
+
+.control-center {
+  border-radius: 0;
+}
+
+.widgets > .widget,
+.widget-mpris > carouselindicatordots,
+.widget-mpris > box > button {
+  background: var(--widget-background);
+  border-radius: var(--border-radius);
+  padding: var(--padding);
+  border: var(--border);
+  margin: var(--margin) 0;
+}
+
+.control-center-list-placeholder {
+  padding: var(--border-radius);
+}
+
+.notification-group {
+  border-radius: var(--border-radius);
+  padding: 8px;
+  margin: 0;
+}
+
+.notification {
+  padding: var(--padding);
+}
+
+.widget.widget-mpris {
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  border: none;
+}
+.widget.widget-mpris > carouselindicatordots {
+  --dots-padding: 4px;
+  padding: var(--dots-padding);
+  padding-left: var(--dots-padding);
+  padding-right: calc(6px + var(--dots-padding));
+  margin: 0;
+  margin-top: var(--margin);
+}
+.widget-mpris > box > button:hover {
+  background: rgba(46, 46, 46, 1);
+}
+.widget-mpris-player {
+  box-shadow: none;
+  border: var(--border);
+  margin: 0 var(--margin);
+}
+.widget-mpris-player:only-child {
+  margin: 0;
+}
