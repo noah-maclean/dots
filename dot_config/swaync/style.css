@@ -43,8 +43,8 @@ trough {
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.8), inset 0 0 0 1px #45475a;
   border-radius: 12.6px;
   margin: 18px;
-  background: #181825;
-  color: #cdd6f4;
+  background: #06081c;
+  color: #c0caf5;
   padding: 0;
 }
 
@@ -54,7 +54,8 @@ trough {
 }
 
 .notification-background .notification.critical {
-  box-shadow: inset 0 0 7px 0 #f38ba8;
+  /* box-shadow: inset 0 0 7px 0 #f38ba8; */
+  box-shadow: inset 0 0 7px 0 #db4b4b;
 }
 
 .notification .notification-content {
@@ -67,15 +68,18 @@ trough {
 }
 
 .notification-content .summary {
-  color: #cdd6f4;
+  /* color: #cdd6f4; */
+  color: #c0caf5;
 }
 
 .notification-content .time {
-  color: #a6adc8;
+  /* color: #a6adc8; */
+  color: #c0caf5;
 }
 
 .notification-content .body {
-  color: #bac2de;
+  /* color: #bac2de; */
+  color: #c0caf5;
 }
 
 .notification > *:last-child > * {
@@ -86,7 +90,8 @@ trough {
   margin: 7px;
   padding: 2px;
   border-radius: 6.3px;
-  color: #1e1e2e;
+  /* color: #1e1e2e; */
+  color: #06081c;
   background-color: #f38ba8;
 }
 
@@ -100,7 +105,8 @@ trough {
 
 .notification .notification-action {
   border-radius: 7px;
-  color: #cdd6f4;
+  /* color: #cdd6f4; */
+  color: #c0caf5;
   box-shadow: inset 0 0 0 1px #45475a;
   margin: 4px;
   padding: 8px;
@@ -139,7 +145,8 @@ trough {
 .control-center {
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.8), inset 0 0 0 1px #313244;
   border-radius: 12.6px;
-  background-color: #1e1e2e;
+  /* background-color: #1e1e2e; */
+  background-color: #06081c;
   color: #cdd6f4;
   padding: 14px;
 }
@@ -159,17 +166,21 @@ trough {
 }
 
 .control-center .widget-title > label {
-  color: #cdd6f4;
+  /* color: #cdd6f4; */
+  color: #c0caf5;
   font-size: 1.3em;
 }
 
 .control-center .widget-title button {
   border-radius: 7px;
-  color: #cdd6f4;
+  /* color: #cdd6f4; */
+  color: #c0caf5;
   background-color: #313244;
   box-shadow: inset 0 0 0 1px #45475a;
   padding: 8px;
 }
+
+/* TODO: finish changing to tokyonight colours */
 
 .control-center .widget-title button:hover {
   background-color: #45475a;
