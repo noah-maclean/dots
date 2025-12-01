@@ -2,7 +2,7 @@ window#osd {
   border-radius: 10px;
   /* border: 2px solid @outline; */
   /* background: alpha(@surface_container_low, 0.4); */
-  background: rgba(6, 8, 28, 0.3);
+  background: rgba(6, 8, 28, 0.5);
 }
 
 window#osd #container {
