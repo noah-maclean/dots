@@ -2,4 +2,4 @@
 
 figlet -f slant "== INSTALLING PACKAGES =="
 
-sudo pacman -S $(< packages.list)
+yay -S $(< packages.list)
