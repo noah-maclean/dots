@@ -1,4 +1,5 @@
-/* based on catpuccin/swaync mocha with colours changed */
+/* TokyoNight Theme */
+/* Based on Catpuccin config */
 
 * {
   all: unset;
@@ -27,23 +28,23 @@ trough slider {
   border-radius: 12.6px;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
   transition: all 0.2s ease;
-  background-color: #89b4fa;
+  background-color: #7aa2f7; /* Tokyo Night Blue */
 }
 
 trough slider:hover {
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.8), 0 0 8px #89b4fa;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.8), 0 0 8px #7aa2f7;
 }
 
 trough {
-  background-color: #313244;
+  background-color: #24283b; /* Widget Background */
 }
 
 /* notifications */
 .notification-background {
-  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.8), inset 0 0 0 1px #45475a;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.8), inset 0 0 0 1px #414868;
   border-radius: 12.6px;
   margin: 18px;
-  background: #06081c;
+  background: #06081c; /* Matches your Waybar */
   color: #c0caf5;
   padding: 0;
 }
@@ -54,8 +55,7 @@ trough {
 }
 
 .notification-background .notification.critical {
-  /* box-shadow: inset 0 0 7px 0 #f38ba8; */
-  box-shadow: inset 0 0 7px 0 #db4b4b;
+  box-shadow: inset 0 0 7px 0 #f7768e; /* Tokyo Night Red */
 }
 
 .notification .notification-content {
@@ -63,22 +63,18 @@ trough {
 }
 
 .notification .notification-content overlay {
-  /* icons */
   margin: 4px;
 }
 
 .notification-content .summary {
-  /* color: #cdd6f4; */
   color: #c0caf5;
 }
 
 .notification-content .time {
-  /* color: #a6adc8; */
-  color: #c0caf5;
+  color: #a9b1d6; /* Dimmer Text */
 }
 
 .notification-content .body {
-  /* color: #bac2de; */
   color: #c0caf5;
 }
 
@@ -90,48 +86,46 @@ trough {
   margin: 7px;
   padding: 2px;
   border-radius: 6.3px;
-  /* color: #1e1e2e; */
   color: #06081c;
-  background-color: #f38ba8;
+  background-color: #f7768e; /* Tokyo Night Red */
 }
 
 .notification-background .close-button:hover {
-  background-color: #eba0ac;
+  background-color: #ff9e64; /* Orange hover */
 }
 
 .notification-background .close-button:active {
-  background-color: #f5c2e7;
+  background-color: #f7768e;
 }
 
 .notification .notification-action {
   border-radius: 7px;
-  /* color: #cdd6f4; */
   color: #c0caf5;
-  box-shadow: inset 0 0 0 1px #45475a;
+  box-shadow: inset 0 0 0 1px #414868;
   margin: 4px;
   padding: 8px;
-  font-size: 0.2rem; /* controls the button size not text size*/
+  font-size: 0.2rem;
 }
 
 .notification .notification-action {
-  background-color: #313244;
+  background-color: #24283b;
 }
 
 .notification .notification-action:hover {
-  background-color: #45475a;
+  background-color: #414868; /* Highlight */
 }
 
 .notification .notification-action:active {
-  background-color: #585b70;
+  background-color: #565f89;
 }
 
 .notification.critical progress {
-  background-color: #f38ba8;
+  background-color: #f7768e;
 }
 
 .notification.low progress,
 .notification.normal progress {
-  background-color: #89b4fa;
+  background-color: #7aa2f7;
 }
 
 .notification progress,
@@ -143,17 +137,16 @@ trough {
 
 /* control center */
 .control-center {
-  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.8), inset 0 0 0 1px #313244;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.8), inset 0 0 0 1px #414868;
   border-radius: 12.6px;
-  /* background-color: #1e1e2e; */
-  background-color: #06081c;
-  color: #cdd6f4;
+  background-color: #06081c; /* Matches your Waybar */
+  color: #c0caf5;
   padding: 14px;
 }
 
 .control-center .notification-background {
   border-radius: 7px;
-  box-shadow: inset 0 0 0 1px #45475a;
+  box-shadow: inset 0 0 0 1px #414868;
   margin: 4px 10px;
 }
 
@@ -166,28 +159,24 @@ trough {
 }
 
 .control-center .widget-title > label {
-  /* color: #cdd6f4; */
   color: #c0caf5;
   font-size: 1.3em;
 }
 
 .control-center .widget-title button {
   border-radius: 7px;
-  /* color: #cdd6f4; */
   color: #c0caf5;
-  background-color: #313244;
-  box-shadow: inset 0 0 0 1px #45475a;
+  background-color: #24283b;
+  box-shadow: inset 0 0 0 1px #414868;
   padding: 8px;
 }
 
-/* TODO: finish changing to tokyonight colours */
-
 .control-center .widget-title button:hover {
-  background-color: #45475a;
+  background-color: #414868;
 }
 
 .control-center .widget-title button:active {
-  background-color: #585b70;
+  background-color: #565f89;
 }
 
 .control-center .notification-group {
@@ -195,7 +184,7 @@ trough {
 }
 
 .control-center .notification-group:focus .notification-background {
-  background-color: #313244;
+  background-color: #24283b;
 }
 
 scrollbar slider {
@@ -217,28 +206,28 @@ scrollbar trough {
 .widget-dnd > switch {
   font-size: initial;
   border-radius: 8px;
-  background: #313244;
+  background: #24283b;
   box-shadow: none;
 }
 
 .widget-dnd > switch:checked {
-  background: #89b4fa;
+  background: #7aa2f7;
 }
 
 .widget-dnd > switch slider {
-  background: #45475a;
+  background: #414868;
   border-radius: 8px;
 }
 
 /* mpris */
 .widget-mpris-player {
-  background: #313244;
+  background: #24283b;
   border-radius: 12.6px;
-  color: #cdd6f4;
+  color: #c0caf5;
 }
 
 .mpris-overlay {
-  background-color: #313244;
+  background-color: #24283b;
   opacity: 0.9;
   padding: 15px 10px;
 }
@@ -251,17 +240,17 @@ scrollbar trough {
 
 .widget-mpris-title {
   font-size: 1.2rem;
-  color: #cdd6f4;
+  color: #c0caf5;
 }
 
 .widget-mpris-subtitle {
   font-size: 1rem;
-  color: #bac2de;
+  color: #a9b1d6;
 }
 
 .widget-mpris button {
   border-radius: 12.6px;
-  color: #cdd6f4;
+  color: #c0caf5;
   margin: 0 5px;
   padding: 2px;
 }
@@ -271,11 +260,11 @@ scrollbar trough {
 }
 
 .widget-mpris button:hover {
-  background-color: #313244;
+  background-color: #414868;
 }
 
 .widget-mpris button:active {
-  background-color: #45475a;
+  background-color: #565f89;
 }
 
 .widget-mpris button:disabled {
@@ -288,17 +277,17 @@ scrollbar trough {
 }
 
 .widget-menubar > box > .menu-button-bar > :last-child {
-  color: #f38ba8;
+  color: #f7768e;
 }
 
 .power-buttons button:hover,
 .powermode-buttons button:hover,
 .screenshot-buttons button:hover {
-  background: #313244;
+  background: #24283b;
 }
 
 .control-center .widget-label > label {
-  color: #cdd6f4;
+  color: #c0caf5;
   font-size: 2rem;
 }
 
@@ -315,21 +304,21 @@ scrollbar trough {
 }
 
 .widget-volume label {
-  color: #74c7ec;
+  color: #7aa2f7;
   padding: 0 1rem;
 }
 
 .widget-volume trough highlight {
-  background: #74c7ec;
+  background: #7aa2f7;
 }
 
 .widget-backlight trough highlight {
-  background: #f9e2af;
+  background: #e0af68; /* Tokyo Night Yellow/Orange */
 }
 
 .widget-backlight label {
   font-size: 1.5rem;
-  color: #f9e2af;
+  color: #e0af68;
 }
 
 .widget-backlight .KB {
