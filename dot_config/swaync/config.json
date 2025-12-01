@@ -50,6 +50,12 @@
       "app-name": "Spotify"
     }
   },
+  "notification-action-filter": {
+    "ignore-dont-show-again": {
+      "text-matcher": "Don.t show this message again",
+      "use-regex": true
+    }
+  },
   "widgets": [
     "inhibitors",
     "title",
