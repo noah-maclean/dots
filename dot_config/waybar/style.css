@@ -111,6 +111,8 @@ tooltip {
     color: #d5dcf5;
     border: none;
     border-radius: 15px;
+    padding: 0px 8px;
+    margin: 0px 1px;
 }
 
 #workspaces button.active {
@@ -119,7 +121,8 @@ tooltip {
 }
 
 #workspaces button:hover {
-    background: #11111b;
+    /* background: #11111b; */
+    background: rgba(79, 0, 158, 0.3);
     color: #d5dcf5;
     box-shadow: none;
 }
