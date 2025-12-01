@@ -58,6 +58,7 @@
   },
 
   // `yay -S waybar-module-pacman-updates`
+  // `sudo pacman -S figlet`
   "custom/updates": {
       "format": "{}{icon}",
       "return-type": "json",
@@ -69,7 +70,7 @@
       // network-interval-seconds: interval between network updates (seconds)
       // color-semver-updates: Major, Minor, Patch, Pre, Other
       "exec": "waybar-module-pacman-updates --network-interval-seconds 150 --no-zero-output --color-semver-updates 'fa5448,fa9848,fae248,d3fa48,73db56' --tooltip-align-columns 'JetBrainsMono Nerd Font'",
-      "on-click": "ghostty --class='com.update.sys' -e sh -c 'echo \"Performing system update...\"; yay; echo \"Update complete. Press enter to exit\"; read' "
+      "on-click": "ghostty --class='com.update.sys' -e sh -c \"figlet -f slant '== UPDATING =='; yay; echo 'Update complete. Press enter to exit'; read\" "
   },
 
   "idle_inhibitor": {
@@ -210,7 +211,7 @@
     "tooltip": true,
     "format": "{0} {icon}",
     "format-icons": {
-      "notification": "󱅫 ",
+      "notification": "󱅫",
       "none": "󰂜",
       "dnd-notification": "󰂠",
       "dnd-none": "󰪓",
