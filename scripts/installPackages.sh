@@ -2,4 +2,6 @@
 
 figlet -f slant "== INSTALLING PACKAGES =="
 
-yay -S $(< packages.list)
+sleep 0.5
+
+yay -S --needed $(< packages.list)
