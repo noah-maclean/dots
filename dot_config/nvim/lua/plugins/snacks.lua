@@ -12,7 +12,14 @@ return {
 		},
 		git = { enabled = true }, -- git utilities
 		gitbrowse = { enabled = true }, -- open the current file, branch, commit or repo in browser
-		image = { enabled = true }, -- image viewer using Kitty protocol
+		image = {
+			enabled = true,
+			resolve = function(path, src)
+				if require("obsidian.api").path_is_note(path) then
+					return require("obsidian.api").resolve_image_path(src)
+				end
+			end,
+		}, -- image viewer using Kitty protocol
 		indent = { enabled = true }, -- indent guides and scopes
 		input = { enabled = true },
 		lazygit = { enabled = true },
