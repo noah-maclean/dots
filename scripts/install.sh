@@ -2,6 +2,17 @@
 
 clear
 
+# TODO: check if correct
+check_install() {
+    local package="$1"
+    if command -v $package &> /dev/null; then
+        return 1
+    else
+        return 0
+    fi
+}
+
+
 ask_yes_no() {
     local prompt="$1"
 
@@ -35,14 +46,38 @@ ask_yes_no() {
     done
 }
 
+
+figlet_or_echo() {
+    local message="$1"
+    if command -v figlet &> /dev/null; then
+    # if ! pacman -Qi figlet &> /dev/null; then
+        figlet -t -f slant $message
+        # figlet -t $message
+    else
+        echo $message
+    fi
+}
+
+
 # login to sudo so that it doesn't need to be done when installing
-echo "Script requires sudo privilages to install packages"
-sudo -v
+# echo "Script requires sudo privilages to install packages"
+# sudo -v
+
+# update system first
+echo "Updating system..."
+sudo pacman -Syyu
 
 # install figlet if not installed
-if ! pacman -Qi figlet &> /dev/null; then
-# alternative
-# if ! command -v figlet &> /dev/null; then
+# # alternative
+# # if ! command -v figlet &> /dev/null; then
+#     if ask_yes_no "Install figlet (ascii font renderer)"; then
+#         sudo pacman -S figlet
+#     else 
+#         echo "Skipping figlet installation..."
+#     fi
+# fi
+
+if check_install "figlet"; then
     if ask_yes_no "Install figlet (ascii font renderer)"; then
         sudo pacman -S figlet
     else 
@@ -50,56 +85,73 @@ if ! pacman -Qi figlet &> /dev/null; then
     fi
 fi
 
-if command -v figlet &> /dev/null; then
-    figlet -t -f slant "== YAY =="
+
+# if ! command -v git &> /dev/null; then
+if check_install "git"; then
+    figlet_or_echo "== GIT =="
+    if ask_yes_no "Install git?"; then
+        echo "Installing git..."
+        sudo pacman -S git
+    else
+        echo "Cannot proceed without git"
+        exit 0
+    fi
 fi
 
-if ask_yes_no "Install yay (aur helper)?"; then
-    echo "Installing yay..."
-    sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && cd .. && rm -rf yay
-    yay_installed=1
+
+
+# if ! command -v yay &> /dev/null; then
+if check_install "yay"; then
+    figlet_or_echo "== YAY =="
+    if ask_yes_no "Install yay (aur helper)?"; then
+        echo "Installing yay..."
+        # TODO: uncomment when done
+        # sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && cd .. && rm -rf yay
+        echo "yay installed"
+    else
+        echo "Cannot install all packages without yay"
+        exit 0
+    fi
+fi
+
+figlet_or_echo "== INSTALLING PACKAGES =="
+
+sleep 0.5
+
+figlet_or_echo "== PACMAN =="
+sudo pacman -S --needed $(< pacman.list)
+
+figlet_or_echo "== AUR =="
+yay -S --needed $(< aur.list)
+
+# TODO: set shell to zsh
+# TODO: fix $SHELL = /bin/zsh
+if (! check_install "zsh") && ($SHELL != "/bin/zsh"); then
+    figlet_or_echo "== SETUP ZSH =="
+    chsh -s $(which zsh)
+    source ~/.zshrc
+    echo "Shell changed from bash to zsh"
 else
-    echo "Skipping yay installation..."
+    echo "zsh installation error."
 fi
 
-# TODO: change package.list to pacman.list and yay.list for if yay is installed or not
-# TODO: or not caus I'm the only one who's gonna use it
-
-# if count of figlet installed is less than 1 (figlet not installed)
-# if [[ "pacman -Qq figlet | wc -l" -lt 1 ]]; then
-# echo -n "Install figlet (ascii font renderer)? [Y/n] "
-# read input
-# if [[ $input ]]
-# sudo pacman -S figlet
-# figlet -t -f slant "== YAY =="
-#
-# while true; do
-#     # -p prints the text on same line as input 
-#     # -r prevents backslashes being escape characters
-#     # -n 1 only accepts 1 character
-#     read -rp "Install yay (aur helper)? [Y/n] " -n 1 input
-#
-#     # new line as -n does not add newline
-#     echo ""
-#
-#     case $input in
-#         [yY]|"")
-#             echo "install"
-#             break
-#             ;;
-#         [nN])
-#             echo "not installing"
-#             break
-#             ;;
-#         *)
-#             echo "Invalid input. Try again"
-#             ;;
-#     esac
-# done
-
-
-# echo -n "Install yay (aur helper)? [Y/n] "
-# read input
-# if [ $input == "y" ]; then
-#     echo "install"
+# TODO: install oh my zsh
+figlet_or_echo "== OH MY ZSH =="
+# if ask_yes_no "Install Oh My Zsh?"; then
+#     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 # fi
+
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    if ask_yes_no "Install Oh My Zsh?"; then
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+    fi
+else
+    echo "Oh My Zsh is already installed."
+fi
+
+# TODO: setup ly and enable services
+# TODO: network manager, bluetooth, ly
+
+
+echo "Installation completed"
+echo "Reboot to finalise setup"

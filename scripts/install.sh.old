@@ -1,0 +1,130 @@
+#!/bin/bash
+
+clear
+
+ask_yes_no() {
+    local prompt="$1"
+
+    while true; do
+        # $1 is the first argument passed to the function (the prompt text)
+        # -p prints the text on same line as input 
+        # -r prevents backslashes being escape characters
+        # -n 1 only accepts 1 character
+        read -r -p "$prompt [Y/n] " -n 1 input
+        
+        # Only print a newline if the user typed a character (y/n). 
+        # If they hit Enter, the terminal already moved the cursor down.
+        if [[ -n $input ]]; then
+            echo ""
+        fi
+
+        case $input in
+            # matches y, Y or enter
+            [yY]|"")
+            return 0  # success (true)
+                ;;
+            # matches n or N
+            [nN])
+                return 1  # failure (false)
+                ;;
+            # matches anything else
+            *)
+                echo "Invalid input. Please press y or n."
+                ;;
+        esac
+    done
+}
+
+figlet_or_echo() {
+    local message="$1"
+    if command -v figlet &> /dev/null; then
+        figlet -t -f slant $message
+    else
+        echo $message
+    fi
+}
+
+
+# login to sudo so that it doesn't need to be done when installing
+# echo "Script requires sudo privilages to install packages"
+sudo -v
+
+# install figlet if not installed
+if ! pacman -Qi figlet &> /dev/null; then
+# alternative
+# if ! command -v figlet &> /dev/null; then
+    if ask_yes_no "Install figlet (ascii font renderer)"; then
+        sudo pacman -S figlet
+    else 
+        echo "Skipping figlet installation..."
+    fi
+fi
+
+# if command -v figlet &> /dev/null; then
+#     figlet -t -f slant "== YAY =="
+# else
+#     echo "== YAY =="
+# fi
+
+figlet_or_echo "== YAY =="
+
+# TODO: create function for checking if figlet installed and echoing if not
+
+if ask_yes_no "Install yay (aur helper)?"; then
+    echo "Installing yay..."
+    # TODO: uncomment when done
+    # sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && cd .. && rm -rf yay
+    echo "yay installed"
+    yay_installed=true
+else
+    echo "Skipping yay installation..."
+    yay_installed=false
+fi
+
+if $yay_installed; then
+    echo "yay"
+else
+    echo "no yay"
+fi
+
+# TODO: change package.list to pacman.list and yay.list for if yay is installed or not
+# TODO: or not caus I'm the only one who's gonna use it
+
+# if count of figlet installed is less than 1 (figlet not installed)
+# if [[ "pacman -Qq figlet | wc -l" -lt 1 ]]; then
+# echo -n "Install figlet (ascii font renderer)? [Y/n] "
+# read input
+# if [[ $input ]]
+# sudo pacman -S figlet
+# figlet -t -f slant "== YAY =="
+#
+# while true; do
+#     # -p prints the text on same line as input 
+#     # -r prevents backslashes being escape characters
+#     # -n 1 only accepts 1 character
+#     read -rp "Install yay (aur helper)? [Y/n] " -n 1 input
+#
+#     # new line as -n does not add newline
+#     echo ""
+#
+#     case $input in
+#         [yY]|"")
+#             echo "install"
+#             break
+#             ;;
+#         [nN])
+#             echo "not installing"
+#             break
+#             ;;
+#         *)
+#             echo "Invalid input. Try again"
+#             ;;
+#     esac
+# done
+
+
+# echo -n "Install yay (aur helper)? [Y/n] "
+# read input
+# if [ $input == "y" ]; then
+#     echo "install"
+# fi
