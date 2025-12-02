@@ -46,8 +46,8 @@ theme = TokyoNight
 font-size = 14
 font-family = "JetBrainsMono Nerd Font"
 # font-family = "MesloLGS"
-font-style = "Bold"
-font-style-italic = "Bold Italic"
+# font-style = "Bold"
+# font-style-italic = "Bold Italic"
 
 cursor-style = bar
 
