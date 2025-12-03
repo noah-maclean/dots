@@ -33,27 +33,30 @@ return {
 					path = "~/Documents/Uni Notes/",
 				},
 			},
+            frontmatter = {
+                enabled = false,
+            },
 			attachments = {
 				img_folder = "Attachments",
 			},
 			-- see below for full list of options 👇
 		},
 
-		-- autocommands
-		-- config = function(_, opts)
-		-- 	require("obsidian").setup(opts)
-		--
-		-- 	-- format codeblocks
-		-- 	vim.api.nvim_create_autocmd("User", {
-		-- 		pattern = "ObsidianNoteWritePost",
-		-- 		callback = function(ev)
-		-- 			require("conform").format({
-		-- 				bufnr = ev.buf,
-		-- 				formatters = { "prettier", "injected" },
-		-- 			})
-		-- 		end,
-		-- 	})
-		-- end,
+		-- mappings
+		config = function(_, opts)
+			require("obsidian").setup(opts)
+
+            -- paste image into Obsidian
+			vim.api.nvim_create_autocmd("User", {
+				pattern = "ObsidianNoteEnter",
+				callback = function(ev)
+					vim.keymap.set("n", "<leader>mp", "<cmd>Obsidian paste_img<cr>", {
+						buffer = ev.buf,
+						desc = "[P]aste Obsidian image",
+					})
+				end,
+			})
+		end,
 	},
 	{
 		"jmbuhr/otter.nvim",
