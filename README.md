@@ -13,7 +13,7 @@ Arch Linux dotfiles with chezmoi
 ## Laptop
 
 1) `chezmoi init git@github.com:noah-maclean/dots.git`
-2) run scripts/install.sh to install packages
+2) run `scripts/install.sh` to install packages
 
 
 ## Desktop
