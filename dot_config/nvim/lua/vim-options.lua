@@ -46,12 +46,5 @@ vim.o.winborder = "rounded"
 -- fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
 
--- allow markdown folding
--- vim.g.markdown_folding = 1 -- FIXME: causes folds to automatically be folded
-
--- vim.wo.foldexpr = "MarkdownFold()"
--- vim.wo.foldmethod = "expr"
--- vim.wo.foldtext = "MarkdownFoldText()"
-
 -- allow copying and pasting from system clipboard
 vim.api.nvim_set_option("clipboard", "unnamedplus")
