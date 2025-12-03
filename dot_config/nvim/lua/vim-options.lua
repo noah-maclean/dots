@@ -47,4 +47,9 @@ vim.o.winborder = "rounded"
 vim.g.markdown_recommended_style = 0
 
 -- allow copying and pasting from system clipboard
-vim.api.nvim_set_option("clipboard", "unnamedplus")
+-- vim.api.nvim_set_option("clipboard", "unnamedplus")
+-- nvim_set_option is deprecated
+vim.api.nvim_set_option_value("clipboard", "unnamedplus", {scope="global"})
+
+-- remove "s" keymap in normal and visual modes (only use "c")
+vim.keymap.set({ "n", "x" }, "s", "<Nop>")
