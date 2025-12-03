@@ -40,20 +40,20 @@ return {
 		},
 
 		-- autocommands
-		config = function(_, opts)
-			require("obsidian").setup(opts)
-
-			-- format codeblocks
-			vim.api.nvim_create_autocmd("User", {
-				pattern = "ObsidianNoteWritePost",
-				callback = function(ev)
-					require("conform").format({
-						bufnr = ev.buf,
-						formatters = { "prettier", "injected" },
-					})
-				end,
-			})
-		end,
+		-- config = function(_, opts)
+		-- 	require("obsidian").setup(opts)
+		--
+		-- 	-- format codeblocks
+		-- 	vim.api.nvim_create_autocmd("User", {
+		-- 		pattern = "ObsidianNoteWritePost",
+		-- 		callback = function(ev)
+		-- 			require("conform").format({
+		-- 				bufnr = ev.buf,
+		-- 				formatters = { "prettier", "injected" },
+		-- 			})
+		-- 		end,
+		-- 	})
+		-- end,
 	},
 	{
 		"jmbuhr/otter.nvim",
