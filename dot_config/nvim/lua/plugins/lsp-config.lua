@@ -32,7 +32,7 @@ return {
 				-- lua_ls for lua
 				-- ts_ls for javascript (typescript)
 				-- cssls for css
-				ensure_installed = { "lua_ls", "ts_ls", "cssls" },
+				ensure_installed = { "ts_ls", "cssls" },
 			})
 
 			-- let completions use the lsp data
@@ -56,6 +56,8 @@ return {
 		dependencies = { "saghen/blink.cmp" },
 		lazy = false,
 		config = function()
+            -- setup lua_ls as it broke on mason
+            require("lspconfig").lua_ls.setup {}
 			-- -- let completions use the lsp data
 			-- local capabilities = require("blink.cmp").get_lsp_capabilities()
 			-- local lspconfig = require("lspconfig")
