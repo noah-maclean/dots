@@ -62,22 +62,23 @@ return {
 		},
 		opts = {},
 
-		--- Activate the current buffer by adding and synchronizing
-		---@param languages table|nil List of languages to activate. If nil, all available languages will be activated.
-		---@param completion boolean|nil Enable completion for otter buffers. Default: true
-		---@param diagnostics boolean|nil Enable diagnostics for otter buffers. Default: true
-		---@param tsquery string|nil Explicitly provide a treesitter query. If nil, the injections query for the current filetyepe will be used. See :h treesitter-language-injections.
 		config = function()
-            require("otter").setup({
-                lsp = {
-                    diagnostic_update_events = { "BufWritePost", "InsertLeave", "TextChanged" },
-                }
-            })
+			require("otter").setup({
+				lsp = {
+					diagnostic_update_events = { "BufWritePost", "InsertLeave", "TextChanged" },
+				},
+			})
 
 			vim.api.nvim_create_autocmd("FileType", {
 				pattern = "markdown",
 				group = vim.api.nvim_create_augroup("OtterActivate", { clear = true }),
 				callback = function()
+					---@param languages table|nil List of languages to activate. If nil, all available languages will be activated.
+					---@param completion boolean|nil Enable completion for otter buffers. Default: true
+					---@param diagnostics boolean|nil Enable diagnostics for otter buffers. Default: true
+					---@param tsquery string|nil Explicitly provide a treesitter query. If nil, the injections query for the current filetyepe will be used. See :h treesitter-language-injections.
+
+					-- NOTE: either `:e` or <leader>o to refresh codeblock once created
 					require("otter").activate(nil, true, true, nil)
 				end,
 			})

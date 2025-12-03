@@ -8,3 +8,9 @@ vim.wo.foldlevel = 99
 vim.wo.spell = true
 
 vim.wo.conceallevel = 2
+
+vim.keymap.set("n", "<leader>o", function()
+	-- Passing nil forces it to re-scan the buffer for ANY languages
+	require("otter").activate(nil, true, true, nil)
+	print("Otter: Refreshed code blocks")
+end, { desc = "Refresh [O]tter code blocks" })
