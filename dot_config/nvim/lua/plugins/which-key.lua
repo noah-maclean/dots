@@ -11,13 +11,13 @@ return {
 			{ "<leader>g", group = " git" }, -- shows leader g to be the git keybinds
 			{ "<leader>s", group = " search" }, -- shows leader s to be the search keybinds
 			{ "<leader>u", group = " hide" }, -- shows leader u to be the hide keybinds
-			{ "<leader>p", group = " fun!" }, -- shows leader p to be the fun keybinds
-			{ "<leader>m", group = " markdown" }, -- shows leader m to be the markdown keybinds
-			{ "<leader>t", group = " markdown table" }, -- shows leader t to be the markdown table keybinds
-			{ "<leader>h", group = " markdown headings" },
+			{ "<leader>p", group = " fun!", icon = "" }, -- shows leader p to be the fun keybinds
+			{ "<leader>m", group = " markdown", icon = "" }, -- shows leader m to be the markdown keybinds
+			{ "<leader>t", group = " markdown table", icon = "" }, -- shows leader t to be the markdown table keybinds
+			{ "<leader>h", group = " markdown headings", icon = "󰰀" },
 			{ "<leader>mf", group = " markdown footnotes" },
 			{ "<leader>mQ", group = " markdown quotes" },
-			{ "<leader>pd", group = " ducks" }, -- shows leader pd to be the duck keybinds
+			{ "<leader>pd", group = " ducks", icon = "󰇥" }, -- shows leader pd to be the duck keybinds
 		})
 		wk.setup({
 			-- preset options are classic, modern and helix
