@@ -6,3 +6,5 @@ vim.wo.foldmethod = "expr"
 vim.wo.foldlevel = 99
 -- set spell checking in markdown files
 vim.wo.spell = true
+
+vim.wo.conceallevel = 2
