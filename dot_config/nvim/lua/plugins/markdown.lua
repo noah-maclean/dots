@@ -28,15 +28,17 @@ return {
 
 		-- Completion for `blink.cmp`
 		dependencies = { "saghen/blink.cmp" },
+
 		vim.api.nvim_set_keymap(
 			"n",
-			"<leader>mt",
+			"<leader>mT",
 			"<CMD>Markview toggle<CR>",
 			{ desc = "[T]oggle [M]arkdown rendering" }
 		),
+
 		vim.api.nvim_set_keymap(
 			"n",
-			"<leader>ms",
+			"<leader>mS",
 			"<CMD>Markview splitToggle<CR>",
 			{ desc = "Toggle rendering [M]arkdown in [S]plit" }
 		),
@@ -86,7 +88,7 @@ return {
 		opts = {},
 	},
 	{
-        -- markdown-plus -  adds keybindings for bold, italics, etc. as well as tables, callouts and smart enter for list items
+		-- markdown-plus -  adds keybindings for bold, italics, etc. as well as tables, callouts and smart enter for list items
 		"yousefhadder/markdown-plus.nvim",
 		ft = "markdown", -- Load on markdown files by default
 		config = function()
