@@ -6,8 +6,6 @@
  \__,_|\___/ \__|___/
 ```
 
----
-
 Arch Linux dotfiles with chezmoi
 
 # Installation
