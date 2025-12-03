@@ -1,5 +1,6 @@
 -- obsidian-nvim - allows obsidian vault to be used very similarly in nvim as it is in the obsidian app
 -- otter - allows lsp features (e.g. code completion) for code in code blocks
+-- markdowny - allows for use of markdown keybindings
 return {
 	{
 		"obsidian-nvim/obsidian.nvim",
@@ -83,4 +84,15 @@ return {
 			})
 		end,
 	},
+    {
+    "antonk52/markdowny.nvim",
+    -- keymaps:
+    -- <C-k>: Adds a link to visually selected text.
+    -- <C-b>: Toggles visually selected text to bold.
+    -- <C-i>: Toggles visually selected text to italic.
+    -- <C-e>: Toggles visually selected text to inline code, and V-LINE selected text to a multiline code block
+    config = function()
+        require("markdowny").setup({ filetypes = { "markdown", "txt" }})
+    end
+    }
 }
