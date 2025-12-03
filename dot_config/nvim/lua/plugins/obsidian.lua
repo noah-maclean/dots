@@ -34,13 +34,13 @@ return {
                 img_folder = "Attachments"
 		},
 		-- see below for full list of options 👇
-
-	-- 	config = function()
-	-- 		require("obsidian").setup({
-	-- 			attachments = {
-	-- 				img_folder = "/Attachments",
-	-- 			},
-	-- 		})
-	-- 	end,
 	},
+    -- FIXME:
+    -- vim.api.nvim_create_autocmd("FileType", {
+    --     pattern = "markdown",
+    --     callback = function ()
+    --         vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+    --         vim.wo.foldmethod = "expr"
+    --     end,
+    -- }),
 }
