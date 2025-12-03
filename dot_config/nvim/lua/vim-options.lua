@@ -21,7 +21,7 @@ opt.signcolumn = "yes"
 -- highlight line cursor is on
 opt.cursorline = true
 
--- break wrapped lines nicely 
+-- break wrapped lines nicely
 opt.linebreak = true
 
 -- set the number of lines to keep above and below the cursor
@@ -30,8 +30,12 @@ opt.scrolloff = 10
 -- true colour support
 opt.termguicolors = true
 
--- ignore case (e.g. in search)
+-- ignore case abd smart case in search
 opt.ignorecase = true
+opt.smartcase = true
+
+-- preview substitutions
+opt.inccommand = "split"
 
 -- save undos when file closed
 opt.undofile = true
@@ -41,6 +45,13 @@ vim.o.winborder = "rounded"
 
 -- fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
+
+-- allow markdown folding
+-- vim.g.markdown_folding = 1 -- FIXME: causes folds to automatically be folded
+
+-- vim.wo.foldexpr = "MarkdownFold()"
+-- vim.wo.foldmethod = "expr"
+-- vim.wo.foldtext = "MarkdownFoldText()"
 
 -- allow copying and pasting from system clipboard
 vim.api.nvim_set_option("clipboard", "unnamedplus")
