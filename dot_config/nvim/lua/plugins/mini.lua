@@ -59,17 +59,20 @@ return {
 		"echasnovski/mini.hipatterns",
 		version = false,
 		config = function()
-			require("mini.hipatterns").setup({
-				-- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
-				-- fixme = { pattern = "%f[%w]()FIXME()%f[%W]", group = "MiniHipatternsFixme" },
-				-- hack = { pattern = "%f[%w]()HACK()%f[%W]", group = "MiniHipatternsHack" },
-				-- todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
-				-- note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
+			local hipatterns = require("mini.hipatterns")
+			hipatterns.setup({
+				highlighters = {
+					-- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
+					-- fixme = { pattern = "%f[%w]()FIXME()%f[%W]", group = "MiniHipatternsFixme" },
+					-- hack = { pattern = "%f[%w]()HACK()%f[%W]", group = "MiniHipatternsHack" },
+					-- todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
+					-- note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
 
-				-- NOTE: might be obselete in nvim 0.12 but its not out yet
+                    -- NOTE: might be in nvim 0.12
 
-				-- Highlight hex color strings (`#rrggbb`) using that color
-				hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
+					-- Highlight hex color strings (`#rrggbb`) using that color
+					hex_color = hipatterns.gen_highlighter.hex_color(),
+				},
 			})
 		end,
 	},
