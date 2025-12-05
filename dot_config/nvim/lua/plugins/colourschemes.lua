@@ -28,22 +28,22 @@ return {
 	{
 		-- onedark
 		"navarasu/onedark.nvim",
-        config = function ()
-            require("onedark").setup({
-                transparent = true
-            })
-        end
+		config = function()
+			require("onedark").setup({
+				transparent = true,
+			})
+		end,
 	},
 	{
 		-- catppuccin
 		"catppuccin/nvim",
-        config = function ()
-            require("catppuccin").setup({
-                transparent_background = true,
-                float = {
-                    transparent = true,
-                }
-            })
-        end
+		config = function()
+			require("catppuccin").setup({
+				transparent_background = true,
+				float = {
+					transparent = true,
+				},
+			})
+		end,
 	},
 }
