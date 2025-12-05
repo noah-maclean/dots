@@ -296,14 +296,14 @@ return {
 			desc = "Commands",
 		},
 		{
-			"<leader>sd",
+			"<leader>sD",
 			function()
 				Snacks.picker.diagnostics()
 			end,
 			desc = "Diagnostics",
 		},
 		{
-			"<leader>sD",
+			"<leader>sd",
 			function()
 				Snacks.picker.diagnostics_buffer()
 			end,
