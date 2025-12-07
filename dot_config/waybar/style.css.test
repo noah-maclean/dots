@@ -1,3 +1,28 @@
+/* :root { */
+/*     --bg: #1a1b26; */
+/*     --bg_dark: #16161e; */
+/*     --bg_light: #e1e2e7; */
+/*     --text: #c0caf5; */
+/*     --text_light: #15161e; */
+/**/
+/*     --purple: #7847bd; */
+/**/
+/*     --arch: #1793d1; */
+/*     --arch_hover: #0a72a6; */
+/* } */
+
+@define-color bg #1a1b26;
+@define-color bg_dark #16161e;
+@define-color bg_light #e1e2e7;
+@define-color text #c0caf5;
+@define-color text_light #16161e;
+
+@define-color purple #7847bd;
+
+@define-color arch #1793d1;
+@define-color arch-hover #0a72a6;
+
+
 * {
     border: none;
     border-radius: 10px;
@@ -8,16 +33,14 @@
 }
 
 window#waybar {
-    background: rgba(32, 34, 48, 0);
-    color: #24283b;
     transition: background-color 0.5s;
+    background: rgba(0, 0, 0, 0);
 }
 
 .modules-left,
 .modules-center,
 .modules-right {
     margin: 8px 5px;
-    /* margin: 5px 10px; */
     padding: 0px 5px;
     border-radius: 15px;
 }
@@ -35,15 +58,17 @@ window#waybar {
 }
 
 tooltip {
-    background: rgba(6, 8, 28, 0.95);
+    background: @bg;
+    /* opacity: 0.5; */
+    color: @text;
     font-family: "JetBrainsMono Nerd Font";
     font-weight: 600;
-    color: #c0caf5;
 }
 
-/* tooltip label { */
-/*     color: white; */
-/* } */
+.modules-left,
+.modules-center,
+.modules-right {
+}
 
 #clock,
 #pulseaudio,
@@ -60,14 +85,25 @@ tooltip {
 #custom-arch,
 #custom-notifications {
     padding: 0px 10px;
-    background: rgba(6, 8, 28, 0.5);
-    /* background: transparent; */
+    background: @bg;
+    /* opacity: 0.5; */
+    color: @text;
     font-family: "JetBrainsMono Nerd Font";
     font-weight: 600;
-    color: #c0caf5;
     border: none;
     border-radius: 15px;
 }
+
+/* .modules:hover { */
+/*     background: var(--bg); */
+/*     color: var(--text); */
+/*     opacity: 0.8; */
+/* } */
+
+/* .modules:hover { */
+/*     background: @bg_dark; */
+/*     color: @text; */
+/* } */
 
 #clock:hover,
 #pulseaudio:hover,
@@ -79,12 +115,12 @@ tooltip {
 #tray:hover,
 #idle_inhibitor:hover,
 #backlight-slider:hover,
-#mpris:hover, 
+#mpris:hover,
 #custom-updates:hover,
 #custom-arch:hover,
 #custom-notifications:hover {
-    background: rgba(6, 8, 28, 0.95);
-    color: #cdd6f4;
+    background: @bg_dark;
+    color: @text;
 }
 
 #custom-power {
@@ -96,19 +132,19 @@ tooltip {
     font-size: 22px;
     color: white;
     padding: 0px 11px 0px 6px;
-    background: #1793D1;
+    background: @arch;
 }
 
 #custom-arch:hover {
-    background: rgba(23, 147, 209, 0.8);
+    background: @arch_hover
 }
 
 #workspaces button {
     /* background: transparent; */
-    background: rgba(6, 8, 28, 0.5);
+    background: @bg;
+    color: @text;
     font-family: "JetBrainsMono Nerd Font";
     font-weight: 600;
-    color: #d5dcf5;
     border: none;
     border-radius: 15px;
     padding: 0px 8px;
@@ -116,15 +152,10 @@ tooltip {
 }
 
 #workspaces button.active {
-    /* background: rgba(79, 0, 158, 0.5); */
-    background: rgba(225, 226, 231, 0.8);
-    /* background: #13131d; */
-    color: #15161e;
+    background: @bg_light;
+    color: @text_light;
 }
 
 #workspaces button:hover {
-    /* background: #11111b; */
-    background: rgba(79, 0, 158, 0.5);
-    color: #d5dcf5;
-    box-shadow: none;
+    /* filter: brightness(0.5); */
 }

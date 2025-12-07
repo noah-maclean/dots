@@ -20,7 +20,7 @@
     "custom/notifications",
     "custom/power",
   ],
-    
+
   "custom/arch": {
     "format": "󰣇",
     "tooltip": true,
@@ -44,12 +44,12 @@
       // "mpv": "🎵"
     },
     "status-icons": {
-      "paused": ""
+      "paused": "",
     },
     "dynamic-order": ["title", "artist", "position", "length"],
     "dynamic-len": 60,
     "interval": 1,
-    
+
     // "ignored-players": ["firefox"]
   },
 
@@ -60,27 +60,27 @@
   // `yay -S waybar-module-pacman-updates`
   // `sudo pacman -S figlet`
   "custom/updates": {
-      "format": "{}{icon}",
-      "return-type": "json",
-      "format-icons": {
-          "has-updates": " 󰏗",
-          "updated": "󰏖"
-      },
-      "exec-if": "which waybar-module-pacman-updates",
-      // network-interval-seconds: interval between network updates (seconds)
-      // color-semver-updates: Major, Minor, Patch, Pre, Other
-      "exec": "waybar-module-pacman-updates --network-interval-seconds 150 --no-zero-output --color-semver-updates 'fa5448,fa9848,fae248,d3fa48,73db56' --tooltip-align-columns 'JetBrainsMono Nerd Font'",
-      "on-click": "ghostty --class='com.update.sys' -e sh -c \"figlet -f slant '== UPDATING =='; yay; echo 'Update complete. Press enter to exit'; read\" "
+    "format": "{}{icon}",
+    "return-type": "json",
+    "format-icons": {
+      "has-updates": " 󰏗",
+      "updated": "󰏖",
+    },
+    "exec-if": "which waybar-module-pacman-updates",
+    // network-interval-seconds: interval between network updates (seconds)
+    // color-semver-updates: Major, Minor, Patch, Pre, Other
+    "exec": "waybar-module-pacman-updates --network-interval-seconds 150 --no-zero-output --color-semver-updates 'fa5448,fa9848,fae248,d3fa48,73db56' --tooltip-align-columns 'JetBrainsMono Nerd Font'",
+    "on-click": "ghostty --class='com.update.sys' -e sh -c \"figlet -f slant '== UPDATING =='; yay; echo 'Update complete. Press enter to exit'; read\" ",
   },
 
   "idle_inhibitor": {
     "format": "{icon}",
-    "tooltip-format-activated": "Idle Inhibitor: {status}" ,
-    "tooltip-format-deactivated": "Idle Inhibitor: {status}" ,
+    "tooltip-format-activated": "Idle Inhibitor: {status}",
+    "tooltip-format-deactivated": "Idle Inhibitor: {status}",
     "format-icons": {
       "activated": "󰒳 ",
-      "deactivated": "󰒲 "
-    }
+      "deactivated": "󰒲 ",
+    },
   },
 
   "network": {
@@ -147,7 +147,7 @@
     "tooltip-format-connected": "Configure devices (blueman-manager):\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}",
     // "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_battery_percentage}%"
-    "tooltip-format-enumerate-connected-battery": "{device_alias}: {device_battery_percentage}%"
+    "tooltip-format-enumerate-connected-battery": "{device_alias}: {device_battery_percentage}%",
   },
 
   "clock": {
@@ -167,21 +167,15 @@
       },
     },
 
-    "actions":  {
-                    "on-click-right": "mode",
-                    // "on-scroll-up": "tz_up",
-                    // "on-scroll-down": "tz_down",
-                    "on-scroll-up": "shift_up",
-                    "on-scroll-down": "shift_down"
-                    }
+    "actions": {
+      "on-click-right": "mode",
+      // "on-scroll-up": "tz_up",
+      // "on-scroll-down": "tz_down",
+      // "on-scroll-up": "shift_up",
+      // "on-scroll-down": "shift_down"
+    },
   },
-
-  // "backlight/slider": {
-  //   "min": 0,
-  //   "max": 100,
-  //   "orientation": "horizontal",
-  //   "device": "intel_backlight"
-  // }, 
+  // },
 
   "battery": {
     "interval": 5,
@@ -206,8 +200,6 @@
     "format-time": "{H}h {M}min",
     "tooltip": true,
     "tooltip-format": "{timeTo} {power}w",
-    // "on-click-middle": "$HOME/.config/hypr/scripts/ChangeBlur.sh",
-    // "on-click-right": "$HOME/.config/hypr/scripts/Wlogout.sh",
   },
 
   "custom/notifications": {
@@ -221,14 +213,14 @@
       "inhibited-notification": "󰂛",
       "inhibited-none": "󰪑",
       "dnd-inhibited-notification": "󰂛",
-      "dnd-inhibited-none": "󰪑"
+      "dnd-inhibited-none": "󰪑",
     },
     "return-type": "json",
     "exec-if": "which swaync-client",
     "exec": "swaync-client -swb",
     "on-click": "swaync-client -t -sw",
     "on-click-right": "swaync-client -d -sw",
-    "escape": true
+    "escape": true,
   },
 
   "custom/power": {
@@ -237,5 +229,5 @@
     "on-click": "wlogout --protocol layer-shell",
   },
 }
-     
+
 // vim:set ts=2 sw=2:
