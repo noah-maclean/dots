@@ -159,7 +159,7 @@ figlet_or_echo "== NETWORK MANAGER =="
 
 if ! command -v nmcli &> /dev/null; then
     if ask_yes_no "Install NetworkManager?"; then
-        sudo pacman -S --noconfirm networkmanager
+        sudo pacman -S --needed --noconfirm networkmanager
     fi
 fi
 
@@ -176,7 +176,7 @@ figlet_or_echo "== BLUETOOTH =="
 
 if ! command -v bluetoothctl &> /dev/null; then
     if ask_yes_no "Install Bluetooth support?"; then
-        sudo pacman -S --noconfirm bluez bluez-utils
+        sudo pacman -S --needed --noconfirm bluez bluez-utils
     fi
 fi
 
@@ -191,7 +191,7 @@ fi
 figlet_or_echo  "== AUDIO =="
 
 if ask_yes_no "Install PipeWire Audio?"; then
-    sudo pacman -S --noconfirm pipewire pipewire-pulse wireplumber pipewire-alsa pipewire-jack
+    sudo pacman -S --needed --noconfirm pipewire pipewire-pulse wireplumber pipewire-alsa pipewire-jack
     systemctl --user --now enable pipewire pipewire-pulse wireplumber
     echo "Audio services enabled"
 fi
@@ -204,7 +204,7 @@ if ask_yes_no "Install and Enable Ly (display manager)?"; then
     # 1. Install ly
     if ! check_install "ly"; then
         echo "Installing ly..."
-        sudo pacman -S --noconfirm ly
+        sudo pacman -S --needed --noconfirm ly
     fi
 
     echo "Enabling ly..."
@@ -221,14 +221,14 @@ cpu_vendor=$(grep -m1 'vendor_id' /proc/cpuinfo | awk '{print $3}')
 if [[ "$cpu_vendor" == "GenuineIntel" ]]; then
     echo "Intel CPU detected."
     if ask_yes_no "Install Intel Microcode?"; then
-        sudo pacman -S --noconfirm intel-ucode
+        sudo pacman -S --needed --noconfirm intel-ucode
         echo "For GRUB, run: sudo grub-mkconfig -o /boot/grub/grub.cfg"
         echo "For Limine, add 'module_path: boot():/intel-ucode.img' before initramfs"
     fi
 elif [[ "$cpu_vendor" == "AuthenticAMD" ]]; then
     echo "AMD CPU detected."
     if ask_yes_no "Install AMD Microcode?"; then
-        sudo pacman -S --noconfirm amd-ucode
+        sudo pacman -S --needed --noconfirm amd-ucode
         echo "For GRUB, run: sudo grub-mkconfig -o /boot/grub/grub.cfg"
         echo "For Limine, add 'module_path: boot():/amd-ucode.img' before initramfs"
     fi
