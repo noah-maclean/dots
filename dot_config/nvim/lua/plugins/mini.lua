@@ -2,7 +2,7 @@
 return {
 	{
 		-- ai (around/in) - extend and create a/i objects
-		"echasnovski/mini.ai",
+		"nvim-mini/mini.ai",
 		version = false,
 		config = function()
 			require("mini.ai").setup()
@@ -10,16 +10,15 @@ return {
 	},
 	{
 		-- pairs - autopairs
-		"echasnovski/mini.pairs",
+		"nvim-mini/mini.pairs",
 		version = false,
-
 		config = function()
 			require("mini.pairs").setup()
 		end,
 	},
 	{
 		-- surround - surround actions
-		"echasnovski/mini.surround",
+		"nvim-mini/mini.surround",
 		version = false,
 		config = function()
 			require("mini.surround").setup()
@@ -38,14 +37,15 @@ return {
 	},
 	{
 		-- comment - comment lines
-		"echasnovski/mini.comment",
+		"nvim-mini/mini.comment",
 		version = false,
 		config = function()
 			require("mini.comment").setup()
 		end,
 	},
 	{
-		"echasnovski/mini.files",
+		-- "echasnovski/mini.files",
+		"nvim-mini/mini.files",
 		version = false,
 		config = function()
 			require("mini.files").setup()
@@ -56,7 +56,8 @@ return {
 	},
 	{
 		-- highlight patterns
-		"echasnovski/mini.hipatterns",
+		-- "echasnovski/mini.hipatterns",
+		"nvim-mini/mini.hipatterns",
 		version = false,
 		config = function()
 			local hipatterns = require("mini.hipatterns")
@@ -68,12 +69,19 @@ return {
 					-- todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
 					-- note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
 
-                    -- NOTE: might be in nvim 0.12
+					-- NOTE: might be in nvim 0.12
 
 					-- Highlight hex color strings (`#rrggbb`) using that color
 					hex_color = hipatterns.gen_highlighter.hex_color(),
 				},
 			})
+		end,
+	},
+	{
+		"nvim-mini/mini.cursorword",
+		version = false,
+		config = function()
+			require("mini.cursorword").setup()
 		end,
 	},
 }
