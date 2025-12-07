@@ -63,15 +63,30 @@ return {
 				},
 				list_items = {
 					-- remove extra indentations for list items
-					shift_width = 0,
-					indent_size = 0,
+					shift_width = 4,
+					indent_size = 4,
 					marker_minus = { add_padding = false },
 					marker_plus = { add_padding = false },
 					marker_star = { add_padding = false },
 					marker_dot = { add_padding = false },
+					marker_parenthesis = { add_padding = false },
 				},
 			},
 		},
+
+		config = function(_, opts)
+			require("markview").setup(opts)
+
+			local heading_presets = require("markview.presets").headings
+			local hr_presets = require("markview.presets").horizontal_rules
+
+			require("markview").setup({
+				markdown = {
+					headings = heading_presets.glow,
+					horizontal_rules = hr_presets.thin,
+				},
+			})
+		end,
 	},
 	{
 		-- mdmath - markdown equation previewer using Kitty Graphics Protocol
