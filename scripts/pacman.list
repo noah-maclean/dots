@@ -28,6 +28,7 @@ hyprpaper
 hyprpicker
 hyprshot
 imagemagick
+intel-ucode
 jdk-openjdk
 lazygit
 libreoffice-fresh
@@ -45,7 +46,6 @@ noto-fonts-cjk
 noto-fonts-emoji
 ntp
 obsidian
-openconnect
 pacman-contrib
 pavucontrol
 pipewire

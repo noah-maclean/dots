@@ -124,22 +124,23 @@ sudo pacman -S --needed $(< pacman.list)
 figlet_or_echo "== AUR =="
 yay -S --needed $(< aur.list)
 
-# TODO: set shell to zsh
-# TODO: fix $SHELL = /bin/zsh
-if (! check_install "zsh") && ($SHELL != "/bin/zsh"); then
-    figlet_or_echo "== SETUP ZSH =="
-    chsh -s $(which zsh)
-    source ~/.zshrc
-    echo "Shell changed from bash to zsh"
+figlet_or_echo "== ZSH =="
+
+if (! check_install "zsh") ; then
+    if [[ "$SHELL" != *"zsh"* ]]; then
+        figlet_or_echo "== SETUP ZSH =="
+        chsh -s $(which zsh)
+        source ~/.zshrc
+        echo "Shell changed from bash to zsh"
+        echo "Changes will take effect after rebooting or logging out"
+    else
+        echo "zsh is already the current shell"
 else
     echo "zsh installation error."
 fi
 
-# TODO: install oh my zsh
+
 figlet_or_echo "== OH MY ZSH =="
-# if ask_yes_no "Install Oh My Zsh?"; then
-#     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-# fi
 
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
     if ask_yes_no "Install Oh My Zsh?"; then
@@ -151,6 +152,87 @@ fi
 
 # TODO: setup ly and enable services
 # TODO: network manager, bluetooth, ly
+
+figlet_or_echo "== SETUP SYSTEM =="
+
+figlet_or_echo "== NETWORK MANAGER =="
+
+if ! command -v nmcli &> /dev/null; then
+    if ask_yes_no "Install NetworkManager?"; then
+        sudo pacman -S --noconfirm networkmanager
+    fi
+fi
+
+# Enable the service
+if command -v nmcli &> /dev/null; then
+    echo "Enabling NetworkManager..."
+    sudo systemctl enable --now NetworkManager
+else
+    echo "NetworkManager not found. Internet might not work after reboot."
+fi
+
+
+figlet_or_echo "== BLUETOOTH =="
+
+if ! command -v bluetoothctl &> /dev/null; then
+    if ask_yes_no "Install Bluetooth support?"; then
+        sudo pacman -S --noconfirm bluez bluez-utils
+    fi
+fi
+
+if command -v bluetoothctl &> /dev/null; then
+    echo "Enabling Bluetooth..."
+    sudo systemctl enable --now bluetooth
+else
+    echo "Bluetooth not installed."
+fi
+
+
+figlet_or_echo  "== AUDIO =="
+
+if ask_yes_no "Install PipeWire Audio?"; then
+    sudo pacman -S --noconfirm pipewire pipewire-pulse wireplumber pipewire-alsa pipewire-jack
+    systemctl --user --now enable pipewire pipewire-pulse wireplumber
+    echo "Audio services enabled"
+fi
+
+
+figlet_or_echo "== LY =="
+
+if ask_yes_no "Install and Enable Ly (display manager)?"; then
+    
+    # 1. Install ly
+    if ! check_install "ly"; then
+        echo "Installing ly..."
+        sudo pacman -S --noconfirm ly
+    fi
+
+    echo "Enabling ly..."
+    sudo systemctl enable ly.service
+    
+    echo "Ly enabled. You will see it on next reboot."
+
+
+figlet_or_echo "== MICROCODE =="
+
+# Detect CPU vendor
+cpu_vendor=$(grep -m1 'vendor_id' /proc/cpuinfo | awk '{print $3}')
+
+if [[ "$cpu_vendor" == "GenuineIntel" ]]; then
+    echo "Intel CPU detected."
+    if ask_yes_no "Install Intel Microcode?"; then
+        sudo pacman -S --noconfirm intel-ucode
+        echo "For GRUB, run: sudo grub-mkconfig -o /boot/grub/grub.cfg"
+        echo "For Limine, add 'module_path: boot():/intel-ucode.img' before initramfs"
+    fi
+elif [[ "$cpu_vendor" == "AuthenticAMD" ]]; then
+    echo "AMD CPU detected."
+    if ask_yes_no "Install AMD Microcode?"; then
+        sudo pacman -S --noconfirm amd-ucode
+        echo "For GRUB, run: sudo grub-mkconfig -o /boot/grub/grub.cfg"
+        echo "For Limine, add 'module_path: boot():/amd-ucode.img' before initramfs"
+    fi
+fi
 
 
 echo "Installation completed"
