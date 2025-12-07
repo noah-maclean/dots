@@ -14,6 +14,7 @@ return {
 		gitbrowse = { enabled = true }, -- open the current file, branch, commit or repo in browser
 		image = {
 			enabled = true,
+			-- render obsidian images correctly
 			resolve = function(path, src)
 				if require("obsidian.api").path_is_note(path) then
 					return require("obsidian.api").resolve_image_path(src)
@@ -31,6 +32,19 @@ return {
 			enabled = true,
 			hidden = true, -- show hidden files
 			ignored = true, -- show files in .gitignore
+			sources = {
+				-- change explorer settings as it is a picker in disguise
+				explorer = {
+					matcher = {
+						fuzzy = true,
+					},
+					layout = {
+						layout = {
+							width = 0.3,
+						},
+					},
+				},
+			},
 		},
 		scroll = { enabled = true }, -- smooth scrolling
 		terminal = {
@@ -512,4 +526,14 @@ return {
 			desc = "Toggle Terminal",
 		},
 	},
+	-- config = function(_, opts)
+	--        local snacks = require("snacks")
+	-- 	snacks.setup(opts)
+	-- 	vim.g.transparent_groups = vim.list_extend(
+	-- 		vim.g.transparent_groups or {},
+	-- 		vim.tbl_map(function(v)
+	-- 			return v.hl_group
+	-- 		end, vim.tbl_values({ snacks.explorer, snacks.notifier, snacks.notify }))
+	-- 	)
+	-- end,
 }
