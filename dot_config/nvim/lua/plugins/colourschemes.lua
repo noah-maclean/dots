@@ -7,10 +7,11 @@ return {
 		config = function()
 			local transparent = require("transparent")
 
-			vim.keymap.set("n", "<leader>t", "<cmd>TransparentToggle<CR>", { desc = "Toggle [T]ransparency" })
+			vim.keymap.set("n", "<leader>T", "<cmd>TransparentToggle<CR>", { desc = "Toggle [T]ransparency" })
 
 			transparent.clear_prefix("Snacks")
 			transparent.clear_prefix("WhichKey")
+			transparent.clear_prefix("Blink")
 
 			transparent.setup({
 				extra_groups = {
@@ -20,16 +21,6 @@ return {
 				},
 				exclude_groups = {  "SnacksPickerListCursorLine", "SnacksPickerPreviewCursorLine" },
 			})
-
-			-- vim.api.nvim_create_autocmd("ColorScheme", {
-			-- 	pattern = "*",
-			-- 	callback = function()
-			-- 		transparent.clear_prefix("Snacks")
-			-- 		transparent.clear_prefix("WhichKey")
-			-- 		vim.api.nvim_set_hl(0, "SnacksPickerListCursorLine", { link = "Visual" })
-			-- 		vim.api.nvim_set_hl(0, "SnacksPickerPreviewCursorLine", { link = "Visual" })
-			-- 	end,
-			-- })
 		end,
 	},
 	{
