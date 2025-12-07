@@ -78,6 +78,6 @@ return {
 	},
 	{
 		"nvim-mini/mini.hues",
-        version = false,
+		version = false,
 	},
 }
