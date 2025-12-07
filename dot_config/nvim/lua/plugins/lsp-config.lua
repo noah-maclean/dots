@@ -32,7 +32,7 @@ return {
 				-- lua_ls for lua
 				-- ts_ls for javascript (typescript)
 				-- cssls for css
-				ensure_installed = { "ts_ls", "cssls" },
+				ensure_installed = { "ts_ls", "cssls", "lua_ls@3.15.0" }, -- keep lua_ls at this version to avoid breakage
 			})
 		end,
 	},

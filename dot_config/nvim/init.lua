@@ -18,5 +18,6 @@ vim.opt.rtp:prepend(lazypath)
 require("vim-options")
 require("lazy").setup("plugins")
 
+
 -- enable lua_ls as it does not work with Mason (downloaded with pacman)
-vim.lsp.enable("lua_ls")
+-- vim.lsp.enable("lua_ls")
