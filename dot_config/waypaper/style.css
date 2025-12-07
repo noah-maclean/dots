@@ -18,6 +18,7 @@ window {
     box-shadow: none;
     background-color: rgba(65, 72, 104, 0.5);
     border-color: #c0caf5;
+    border-width: 2;
 }
 
 .highlighted-button>image, .highlighted-button:hover>image {
