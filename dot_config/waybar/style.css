@@ -60,7 +60,7 @@ tooltip {
 #custom-arch,
 #custom-notifications {
     padding: 0px 10px;
-    background: rgba(6, 8, 28, 0.5);
+    background: rgba(6, 8, 28, 0.65);
     /* background: transparent; */
     font-family: "JetBrainsMono Nerd Font";
     font-weight: 600;
@@ -105,7 +105,7 @@ tooltip {
 
 #workspaces button {
     /* background: transparent; */
-    background: rgba(6, 8, 28, 0.5);
+    background: rgba(6, 8, 28, 0.65);
     font-family: "JetBrainsMono Nerd Font";
     font-weight: 600;
     color: #d5dcf5;
@@ -124,7 +124,8 @@ tooltip {
 
 #workspaces button:hover {
     /* background: #11111b; */
-    background: rgba(79, 0, 158, 0.5);
+    /* background: rgba(79, 0, 158, 0.95); */
+    background: rgba(225, 226, 231, 0.5);
     color: #d5dcf5;
     box-shadow: none;
 }
