@@ -19,7 +19,7 @@ return {
 					"NormalFloat",
 					"FloatBorder",
 				},
-				exclude_groups = {  "SnacksPickerListCursorLine", "SnacksPickerPreviewCursorLine" },
+				exclude_groups = { "SnacksPickerListCursorLine", "SnacksPickerPreviewCursorLine" },
 			})
 		end,
 	},
@@ -48,7 +48,7 @@ return {
 	},
 	{
 		-- onedark
-		"navarasu/onedark.nvim",
+		"olimorris/onedarkpro.nvim",
 		-- config = function()
 		-- 	require("onedark").setup({
 		-- 		transparent = true,
@@ -69,5 +69,15 @@ return {
 	},
 	{
 		"EdenEast/nightfox.nvim",
+	},
+	{
+		"nyoom-engineering/oxocarbon.nvim",
+	},
+	{
+		"Mofiqul/dracula.nvim",
+	},
+	{
+		"nvim-mini/mini.hues",
+        version = false,
 	},
 }
