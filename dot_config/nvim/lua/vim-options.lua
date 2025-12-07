@@ -53,3 +53,22 @@ vim.api.nvim_set_option_value("clipboard", "unnamedplus", {scope="global"})
 
 -- remove "s" keymap in normal and visual modes (only use "c")
 vim.keymap.set({ "n", "x" }, "s", "<Nop>")
+
+-- vim diagnostic setup
+vim.diagnostic.config({
+    -- replace tiny-inline-diagnostics
+	virtual_text = true,
+    -- change sings in column
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = "󰅚 ",
+			[vim.diagnostic.severity.WARN] = "󰀪 ",
+			[vim.diagnostic.severity.INFO] = "󰋽 ",
+			[vim.diagnostic.severity.HINT] = "󰌶 ",
+		},
+		numhl = {
+			[vim.diagnostic.severity.ERROR] = "ErrorMsg",
+			[vim.diagnostic.severity.WARN] = "WarningMsg",
+		},
+	},
+})
