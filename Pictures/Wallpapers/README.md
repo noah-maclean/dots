@@ -1,0 +1,5 @@
+# Naming convention
+
+- 1_<name> = abstract
+- 2_<name> = nature
+- 3_<name> = pop culture
