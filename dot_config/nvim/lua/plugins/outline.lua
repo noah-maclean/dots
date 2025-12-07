@@ -1,12 +1,11 @@
--- outline - show outline of headings
+-- outline - show outline of headings, function, variables, etc.
 return {
 	"hedyhli/outline.nvim",
 	lazy = true,
 	cmd = { "Outline", "OutlineOpen" },
-	keys = { -- Example mapping to toggle outline
+	keys = {
 		{ "<leader>o", "<cmd>Outline<CR>", desc = "Toggle [O]utline" },
 	},
 	opts = {
-		-- Your setup opts here
 	},
 }
