@@ -15,6 +15,7 @@
     "pulseaudio",
     "network",
     "bluetooth",
+    "backlight",
     "clock",
     "battery",
     "custom/notifications",
@@ -142,12 +143,27 @@
       "off": "󰂲",
       "connected": "󰂱",
     },
-    "on-click": "blueman-manager",
-    "tooltip-format": "Configure bluetooth (blueman-manager)",
+    // "on-click": "blueman-manager",
+    "on-click": "adw-bluetooth",
+    // "tooltip-format": "Configure bluetooth (blueman-manager)",
+    "tooltip-format": "Configure bluetooth (adw-bluetooth)",
     "tooltip-format-connected": "Configure devices (blueman-manager):\n{device_enumerate}",
+    "tooltip-format-connected": "Configure devices (adw-bluetooth):\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}",
     // "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_battery_percentage}%"
     "tooltip-format-enumerate-connected-battery": "{device_alias}: {device_battery_percentage}%",
+  },
+
+  "backlight": {
+    "inteval": 1,
+    "format": "{icon} {percent}%",
+    "tooltip-format": "Backlight: {percent}%",
+    "on-click": "brightnessctl s 100%",
+    "on-click-right": "brightnessctl s 5%",
+    "smooth-scrolling-threshold": 5,
+    "scroll-step": 5,
+    "reverse-scrolling": true,
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
   },
 
   "clock": {

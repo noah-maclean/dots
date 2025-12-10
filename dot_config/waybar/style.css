@@ -1,7 +1,7 @@
 * {
     border: none;
     border-radius: 10px;
-    font-family: "JetBrainsMono Nerd Font";
+    font-family: "JetBrainsMono Nerd FontPropo";
     font-size: 14px;
     min-height: 10px;
     transition: background-color 0.3s ease-out;
@@ -58,7 +58,8 @@ tooltip {
 #mpris,
 #custom-updates,
 #custom-arch,
-#custom-notifications {
+#custom-notifications,
+#backlight {
     padding: 0px 10px;
     background: rgba(6, 8, 28, 0.65);
     /* background: transparent; */
@@ -82,7 +83,8 @@ tooltip {
 #mpris:hover, 
 #custom-updates:hover,
 #custom-arch:hover,
-#custom-notifications:hover {
+#custom-notifications:hover,
+#backlight:hover {
     background: rgba(6, 8, 28, 0.95);
     color: #cdd6f4;
 }
