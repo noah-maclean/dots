@@ -115,6 +115,7 @@ source $ZSH/oh-my-zsh.sh
 
 # eza (better ls)
 alias ls="eza --icons -x --group-directories-first"
+alias tree="ls -T"
 
 # c is clear
 alias c="clear"
