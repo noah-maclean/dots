@@ -1,6 +1,6 @@
 /* COLOURS */
 /* background: #1a1b26 rgb(26, 27, 38) */
-/* background_float: #16161e rgb(22, 22, 30)*/
+/* background float: #16161e rgb(22, 22, 30)*/
 /* background light: #e1e2e7 rgb(225, 226, 231)*/
 /* foreground: #c0caf5 rgb(192, 202, 245) */
 /* arch: #1793D1 rgb(23, 147, 209) */
@@ -8,7 +8,7 @@
 * {
     border: none;
     border-radius: 10px;
-    font-family: "JetBrainsMono Nerd FontPropo";
+    font-family: "JetBrainsMono Nerd Font Propo";
     font-size: 14px;
     min-height: 10px;
     transition: background-color 0.3s ease-out;
@@ -41,7 +41,7 @@ window#waybar {
 }
 
 tooltip {
-    background: rgba(26, 27, 38, 0.95);
+    background: rgba(22, 22, 30, 0.95);
     /* background: #1a1b265; */
     /* opacity: 0.95; */
     font-family: "JetBrainsMono Nerd Font";
@@ -112,6 +112,8 @@ tooltip {
     font-size: 22px;
     color: white;
     padding: 0px 11px 0px 6px;
+    /* padding: 0px 8px; */
+    margin: 0px 1px;
     background: #1793D1;
 }
 
@@ -149,7 +151,7 @@ tooltip {
 #workspaces button:hover {
     /* background: #11111b; */
     /* background: rgba(79, 0, 158, 0.95); */
-    background: rgba(225, 226, 231, 0.8);
+    background: rgba(225, 226, 231, 0.5);
     color: #d5dcf5;
     /* background-color: #e1e2e7; */
     /* opacity: 0.5; */
