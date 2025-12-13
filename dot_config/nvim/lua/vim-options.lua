@@ -22,7 +22,7 @@ opt.signcolumn = "yes"
 opt.cursorline = true
 
 -- break wrapped lines nicely
-opt.linebreak = true
+-- opt.linebreak = true
 
 -- set the number of lines to keep above and below the cursor
 opt.scrolloff = 10
@@ -39,6 +39,9 @@ opt.inccommand = "split"
 
 -- save undos when file closed
 opt.undofile = true
+
+-- turn swapfile off
+opt.swapfile = false
 
 -- add a border to windows
 vim.o.winborder = "rounded"
@@ -58,6 +61,7 @@ vim.keymap.set({ "n", "x" }, "s", "<Nop>")
 vim.diagnostic.config({
     -- replace tiny-inline-diagnostics
 	virtual_text = true,
+    -- virtual_lines = true,
     -- change sings in column
 	signs = {
 		text = {
