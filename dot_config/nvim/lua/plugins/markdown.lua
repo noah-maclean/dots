@@ -95,7 +95,7 @@ return {
 		-- nodejs
 		-- npm
 		-- imagemagick v6/7
-		-- rsvg-convert (apt install librsvg2-bin)
+		-- rsvg-convert (librsvg2-bin package)
 		"Thiago4532/mdmath.nvim",
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
