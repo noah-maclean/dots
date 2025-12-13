@@ -19,7 +19,7 @@ return {
 					"NormalFloat",
 					"FloatBorder",
 				},
-				exclude_groups = { "SnacksPickerListCursorLine", "SnacksPickerPreviewCursorLine" },
+				exclude_groups = { "CursorLine", "SnacksPickerListCursorLine", "SnacksPickerPreviewCursorLine", "BlinkCmpMenuSelection" },
 			})
 		end,
 	},
@@ -43,7 +43,7 @@ return {
 			-- 			floats = "transparent",
 			-- 		},
 			-- 	})
-			vim.cmd.colorscheme("tokyonight")
+			vim.cmd.colorscheme("tokyonight-night")
 		end,
 	},
 	{
