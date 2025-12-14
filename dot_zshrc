@@ -140,6 +140,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# fix the time when it ends up skewed (https://wiki.archlinux.org/title/System_time#Troubleshooting)
+alias fix_time="sudo ntpd -gq && sudo hwclock --systohc"
+
 # zoxide
 eval "$(zoxide init zsh)"
 alias cd="z"
@@ -176,28 +179,5 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
   --color=separator:#ff9e64 \
   --color=spinner:#ff007c \
 "
-# export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
-#   --highlight-line \
-#   --info=inline-right \
-#   --ansi \
-#   --layout=reverse \
-#   --border=none \
-#   --color=bg+:#283457ff \
-#   --color=bg:#16161eff \
-#   --color=border:#27a1b9 \
-#   --color=fg:#c0caf5 \
-#   --color=gutter:#16161e \
-#   --color=header:#ff9e64 \
-#   --color=hl+:#2ac3de \
-#   --color=hl:#2ac3de \
-#   --color=info:#545c7e \
-#   --color=marker:#ff007c \
-#   --color=pointer:#ff007c \
-#   --color=prompt:#2ac3de \
-#   --color=query:#c0caf5:regular \
-#   --color=scrollbar:#27a1b9 \
-#   --color=separator:#ff9e64 \
-#   --color=spinner:#ff007c \
-# "
 
 export PATH=/sbin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/noah_maclean/.local/bin
