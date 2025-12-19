@@ -54,6 +54,10 @@ return {
 						buffer = ev.buf,
 						desc = "[P]aste Obsidian image",
 					})
+					vim.keymap.set("n", "<leader>mB", "<cmd>Obsidian backlinks<cr>", {
+						buffer = ev.buf,
+						desc = "Obsidian [B]acklinks",
+					})
 				end,
 			})
 		end,
