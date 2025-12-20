@@ -57,6 +57,13 @@ vim.api.nvim_set_option_value("clipboard", "unnamedplus", {scope="global"})
 -- remove "s" keymap in normal and visual modes (only use "c")
 vim.keymap.set({ "n", "x" }, "s", "<Nop>")
 
+-- allows folds in all files
+vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.wo.foldmethod = "expr"
+
+-- start with no folds folded
+vim.wo.foldlevel = 99
+
 -- vim diagnostic setup
 vim.diagnostic.config({
     -- replace tiny-inline-diagnostics
