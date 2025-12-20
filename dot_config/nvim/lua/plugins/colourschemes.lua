@@ -19,7 +19,13 @@ return {
 					"NormalFloat",
 					"FloatBorder",
 				},
-				exclude_groups = { "CursorLine", "SnacksPickerListCursorLine", "SnacksPickerPreviewCursorLine", "BlinkCmpMenuSelection" },
+				exclude_groups = {
+					"CursorLine",
+					"SnacksPickerListCursorLine",
+					"SnacksPickerPreviewCursorLine",
+					"BlinkCmpMenuSelection",
+					"BlinkCmpScrollBarThumb",
+				},
 			})
 		end,
 	},
