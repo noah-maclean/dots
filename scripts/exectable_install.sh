@@ -2,7 +2,6 @@
 
 clear
 
-# TODO: check if correct
 check_install() {
     local package="$1"
     if command -v $package &> /dev/null; then
