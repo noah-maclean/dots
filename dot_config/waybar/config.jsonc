@@ -123,6 +123,7 @@
     "format-source-muted": "",
     "on-click": "pavucontrol",
     "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-middle": "hyprctl dispatch exec \"[workspace special:sinkswitch] ghostty --class='com.sinkswitch.sys' -e ~/.config/hypr/scripts/sinkswitch.sh -exclude 46\"",
     "format-icons": {
       // "headphone": "",
       // "hands-free": "",
@@ -207,8 +208,8 @@
       "critical": 15,
     },
     "format": "{icon} {capacity}%",
-    "format-charging": "󰂄 {capacity}%",
-    // "format-charging": " {capacity}%",
+    // "format-charging": "󰂄 {capacity}%",
+    "format-charging": " {capacity}%",
     // "format-plugged": "󱘖 {capacity}%",
     // "format-alt-click": "click",
     "format-full": "󱟢 100%",
