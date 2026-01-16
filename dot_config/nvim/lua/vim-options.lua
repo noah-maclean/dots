@@ -22,7 +22,7 @@ opt.signcolumn = "yes"
 opt.cursorline = true
 
 -- break wrapped lines nicely
--- opt.linebreak = true
+opt.linebreak = true
 
 -- set the number of lines to keep above and below the cursor
 opt.scrolloff = 10
