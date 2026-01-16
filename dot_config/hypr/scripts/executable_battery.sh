@@ -7,10 +7,10 @@ battery_percentage=$(cat /sys/class/power_supply/BAT0/capacity)
 battery_status=$(cat /sys/class/power_supply/BAT0/status)
 
 # Define the battery icons for each 10% segment
-battery_icons=("󰂃" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰁹")
+battery_icons=("󰂃" "󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰁹")
 
 # Define the charging icon
-charging_icon="󰂄"
+charging_icon=""
 
 # Calculate the index for the icon array
 icon_index=$((battery_percentage / 10))
