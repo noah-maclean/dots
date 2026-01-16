@@ -181,3 +181,24 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
 "
 
 export PATH=/sbin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/noah_maclean/.local/bin
+
+# nmtui tokyo-night theme
+export NEWT_COLORS='
+root=white,black
+window=white,black
+border=blue,black
+title=blue,black
+textbox=white,black
+button=black,blue
+actbutton=black,magenta
+listbox=white,black
+actlistbox=black,blue
+checkbox=blue,black
+actcheckbox=black,blue
+entry=white,black
+actentry=black,blue
+label=white,black
+shadow=black,black
+helpline=white,black
+roottext=white,black
+'
