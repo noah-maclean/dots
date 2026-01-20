@@ -67,7 +67,8 @@ tooltip {
 #custom-updates,
 #custom-arch,
 #custom-notifications,
-#backlight {
+#backlight,
+#power-profiles-daemon {
     padding: 0px 10px;
     /* background: rgba(6, 8, 28, 0.65); */
     background: rgba(26, 27, 38, 0.8);
@@ -95,12 +96,18 @@ tooltip {
 #custom-updates:hover,
 #custom-arch:hover,
 #custom-notifications:hover,
-#backlight:hover {
+#backlight:hover,
+#power-profiles-daemon:hover {
     /* background: rgba(6, 8, 28, 0.95); */
     background: rgba(22, 22, 30, 0.95);
     /* background-color: #1a1b26; */
     /* opacity: 0.95; */
     color: #cdd6f4;
+}
+
+#power-profiles-daemon {
+    font-size: 18px;
+    padding: 0px 11px 0px 6px;
 }
 
 #custom-power {
@@ -156,4 +163,8 @@ tooltip {
     /* background-color: #e1e2e7; */
     /* opacity: 0.5; */
     box-shadow: none;
+}
+
+#battery-power {
+    background: rgba(0, 0, 0, 0);
 }

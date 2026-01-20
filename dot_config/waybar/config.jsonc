@@ -17,7 +17,9 @@
     "bluetooth",
     "backlight",
     "clock",
-    "battery",
+    // "power-profiles-daemon",
+    // "battery",
+    "group/battery-power",
     "custom/notifications",
     "custom/power",
   ],
@@ -191,7 +193,23 @@
       // "on-scroll-down": "shift_down"
     },
   },
-  // },
+
+  // using tlp-pd (systemctl enable tlp-pd)
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}",
+    "tooltip": true,
+    "format-icons": {
+      // "default": "",
+      // "performance": "",
+      // "balanced": "",
+      // "power-saver": "",
+      "default": "󰾅",
+      "performance": "󰓅",
+      "balanced": "󰾅",
+      "power-saver": "󰾆",
+    },
+  },
 
   "battery": {
     "interval": 5,
@@ -214,10 +232,23 @@
     "format-full": "󱟢 100%",
     // "format-alt": "{icon} {time}",
     // "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-    "format-icons": ["󰂃", "󰁺", "󰁻", "󰁼",  "󰁽",  "󰁾",  "󰁿",  "󰂀",  "󰂁",  "󰁹"],
+    "format-icons": ["󰂃", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰁹"],
     "format-time": "{H}h {M}min",
     "tooltip": true,
-    "tooltip-format": "{timeTo} {power}w",
+    "tooltip-format": "Click to show/hide power profile\n{timeTo} {power}w",
+  },
+
+  "group/battery-power": {
+    "orientation": "horizontal",
+    "modules": [
+      "battery",
+      "power-profiles-daemon"
+    ],
+    "drawer": {
+      "transition-duration": 250,
+      "transition-left-to-right": false,
+      "click-to-reveal": true
+    }
   },
 
   "custom/notifications": {
