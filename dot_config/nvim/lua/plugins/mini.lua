@@ -31,7 +31,7 @@ return {
 		-- highlight = 'sh', -- Highlight surrounding
 		-- replace = 'sr', -- Replace surrounding
 		-- update_n_lines = 'sn', -- Update `n_lines`
-		--
+
 		-- suffix_last = 'l', -- Suffix to search with "prev" method
 		-- suffix_next = 'n', -- Suffix to search with "next" method
 	},
@@ -78,6 +78,7 @@ return {
 		end,
 	},
 	{
+        -- highlight word under cursor
 		"nvim-mini/mini.cursorword",
 		version = false,
 		config = function()
