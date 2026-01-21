@@ -26,3 +26,6 @@
 - look into more groups in waybar
     - hardware group
     - power group to remove need for wlogout?
+    
+- switch back to ghostty (in march)a after memory leak is fixed
+    - or switch to nightly build (from source)
