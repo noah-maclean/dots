@@ -146,6 +146,7 @@ alias fix_time="sudo ntpd -gq && sudo hwclock --systohc"
 # zoxide
 eval "$(zoxide init zsh)"
 alias cd="z"
+alias cdi="zi"
 
 # thefuck (fuck) fixes command
 eval $(thefuck --alias)
