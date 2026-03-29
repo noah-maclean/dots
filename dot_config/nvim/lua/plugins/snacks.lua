@@ -12,7 +12,7 @@ return {
 		},
 		git = { enabled = true }, -- git utilities
 		gitbrowse = { enabled = true }, -- open the current file, branch, commit or repo in browser
-		image = {
+		image = { -- image viewer using Kitty protocol
 			enabled = true,
 			-- render obsidian images correctly
 			resolve = function(path, src)
@@ -20,7 +20,7 @@ return {
 					return require("obsidian.api").resolve_image_path(src)
 				end
 			end,
-		}, -- image viewer using Kitty protocol
+		},
 		indent = { enabled = true }, -- indent guides and scopes
 		input = { enabled = true },
 		lazygit = { enabled = true },
@@ -46,7 +46,8 @@ return {
 				},
 			},
 		},
-		scroll = { enabled = true }, -- smooth scrolling
+        scope = { enabled = true },
+	    scroll = { enabled = true }, -- smooth scrolling
 		terminal = {
 			enabled = true,
 			keys = {
@@ -431,7 +432,7 @@ return {
 			desc = "Goto Declaration",
 		},
 		{
-			"gr",
+			"gR",
 			function()
 				Snacks.picker.lsp_references()
 			end,
