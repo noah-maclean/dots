@@ -12,6 +12,12 @@ return {
 				-- Conform will run the first available formatter
 				javascript = { "prettierd", "prettier", stop_after_first = true },
 				c = { "clang-format" },
+				cpp = { "clang-format" },
+				markdown = { "prettierd", "prettier", stop_after_first = true },
+				html = { "prettierd", "prettier", stop_after_first = true },
+				css = { "prettierd", "prettier", stop_after_first = true },
+
+				["_"] = { "lsp_format = 'fallback'" },
 			},
 			-- format_on_save = {
 			-- 	-- These options will be passed to conform.format()
