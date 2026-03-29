@@ -5,6 +5,7 @@
 - nvim-lint and conform for all file types
 - remove nvim-lspconfig and mason-lspconfig and have an lsp directory with information from nvim-lspconfig repo and enable lsp manually (`vim.lsp.enable()`)
 - create a new config with vim.pack when 0.12 is out
+- switch from alpha to snacks dashboard
 
 ## Styling
 
@@ -43,3 +44,11 @@
     - power group to remove need for wlogout?
 - re-add sinkswitch to waybar
     - get bluetooth devices working?
+    
+## zsh
+
+- remove oh-my-zsh and just use .zshrc
+    - add git keybindings from omz
+    - install p10k, syntax highlighting, autosuggestions, etc. manually
+    - look at common-aliases plugin in omz repo
+- try oh my posh
