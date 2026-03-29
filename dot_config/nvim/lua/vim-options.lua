@@ -23,9 +23,12 @@ opt.cursorline = true
 
 -- break wrapped lines nicely
 opt.linebreak = true
+-- keep indentation of wrapped lines
+opt.breakindent = true
 
 -- set the number of lines to keep above and below the cursor
 opt.scrolloff = 10
+opt.sidescrolloff = 10
 
 -- true colour support
 opt.termguicolors = true
@@ -43,11 +46,17 @@ opt.undofile = true
 -- turn swapfile off
 opt.swapfile = false
 
+-- turn off search highlight
+-- opt.hlsearch = false
+
 -- add a border to windows
 vim.o.winborder = "rounded"
 
 -- fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
+--
+-- stop treesitter rendering latex in markdown 
+vim.treesitter.query.set("markdown_inline", "injections", "")
 
 -- allow copying and pasting from system clipboard
 -- vim.api.nvim_set_option("clipboard", "unnamedplus")
@@ -56,6 +65,10 @@ vim.api.nvim_set_option_value("clipboard", "unnamedplus", {scope="global"})
 
 -- remove "s" keymap in normal and visual modes (only use "c")
 vim.keymap.set({ "n", "x" }, "s", "<Nop>")
+-- vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
+-- vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to lower window" })
+-- vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to upper window" })
+-- vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
 
 -- allows folds in all files
 vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
@@ -83,3 +96,4 @@ vim.diagnostic.config({
 		},
 	},
 })
+
