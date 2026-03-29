@@ -134,6 +134,7 @@ if (! check_install "zsh") ; then
         echo "Changes will take effect after rebooting or logging out"
     else
         echo "zsh is already the current shell"
+    fi
 else
     echo "zsh installation error."
 fi
