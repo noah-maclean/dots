@@ -183,6 +183,9 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
 
 export PATH=/sbin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/noah_maclean/.local/bin
 
+# fix haskell nvim issues
+export PATH="$HOME/.ghcup/bin:$PATH"
+
 # nmtui tokyo-night theme
 export NEWT_COLORS='
 root=white,black
