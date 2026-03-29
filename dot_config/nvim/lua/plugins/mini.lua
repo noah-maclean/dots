@@ -13,7 +13,11 @@ return {
 		"nvim-mini/mini.pairs",
 		version = false,
 		config = function()
-			require("mini.pairs").setup()
+			require("mini.pairs").setup({
+				mappings = {
+					["$"] = { action = "closeopen", pair = "$$", neigh_pattern = "[^\\].", register = { cr = false } },
+				},
+			})
 		end,
 	},
 	{
@@ -78,7 +82,7 @@ return {
 		end,
 	},
 	{
-        -- highlight word under cursor
+		-- highlight word under cursor
 		"nvim-mini/mini.cursorword",
 		version = false,
 		config = function()
