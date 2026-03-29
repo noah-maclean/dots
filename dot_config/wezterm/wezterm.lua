@@ -12,7 +12,9 @@ local config = {
 	cursor_blink_ease_in = "Constant",
 	cursor_blink_ease_out = "Constant",
 
-    window_close_confirmation = "NeverPrompt",
+	window_close_confirmation = "NeverPrompt",
+
+    warn_about_missing_glyphs = false,
 }
 
 return config
