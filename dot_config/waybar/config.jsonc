@@ -125,6 +125,7 @@
     "format-source-muted": "",
     "on-click": "pavucontrol",
     "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-middle": "hyprctl dispatch exec \"[workspace special:sinkswitch] ghostty --class='com.sinkswitch.sys' -e ~/.config/waybar/sinkswitch.sh -exclude 46\"",
     "format-icons": {
       // "headphone": "",
       // "hands-free": "",
@@ -170,7 +171,7 @@
 
   "clock": {
     // "format": " {:%H:%M  %d/%m/%Y}",
-    "format": "  {:%H:%M}",
+    "format": " {:%H:%M}",
     "format-alt": " {:%d/%m/%Y}",
     //"tooltip-format": "<tt><small>{calendar}</small></tt>",
     "tooltip-format": "<tt>{calendar}</tt>",
@@ -212,7 +213,7 @@
   },
 
   "battery": {
-    "interval": 5,
+    "interval": 15,
     "align": 0,
     "rotate": 0,
     //"bat": "BAT1",
