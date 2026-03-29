@@ -1,8 +1,8 @@
 {
     "label" : "suspend",
     "action" : "systemctl suspend",
-    "text" : "Suspend [u]",
-    "keybind" : "u"
+    "text" : "Suspend [s]",
+    "keybind" : "s"
 }
 {
     "label" : "reboot",
@@ -13,6 +13,6 @@
 {
     "label" : "shutdown",
     "action" : "systemctl poweroff",
-    "text" : "Shutdown [s]",
-    "keybind" : "s"
+    "text" : "Power Off [p]",
+    "keybind" : "p"
 }
