@@ -33,11 +33,15 @@ return {
 					path = "~/Documents/Uni Notes/",
 				},
 			},
-            frontmatter = {
-                enabled = false,
-            },
+			frontmatter = {
+				enabled = false,
+			},
 			attachments = {
-				img_folder = "Attachments",
+				folder = "Attachments",
+			},
+			completion = {
+				nvim_cmp = false,
+				blink = true,
 			},
 			-- see below for full list of options 👇
 		},
@@ -46,7 +50,7 @@ return {
 		config = function(_, opts)
 			require("obsidian").setup(opts)
 
-            -- paste image into Obsidian
+			-- paste image into Obsidian
 			vim.api.nvim_create_autocmd("User", {
 				pattern = "ObsidianNoteEnter",
 				callback = function(ev)
@@ -62,33 +66,33 @@ return {
 			})
 		end,
 	},
-	{
-		"jmbuhr/otter.nvim",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-		},
-		opts = {},
-
-		config = function()
-			require("otter").setup({
-				lsp = {
-					diagnostic_update_events = { "BufWritePost", "InsertLeave", "TextChanged" },
-				},
-			})
-
-			vim.api.nvim_create_autocmd("FileType", {
-				pattern = "markdown",
-				group = vim.api.nvim_create_augroup("OtterActivate", { clear = true }),
-				callback = function()
-					---@param languages table|nil List of languages to activate. If nil, all available languages will be activated.
-					---@param completion boolean|nil Enable completion for otter buffers. Default: true
-					---@param diagnostics boolean|nil Enable diagnostics for otter buffers. Default: true
-					---@param tsquery string|nil Explicitly provide a treesitter query. If nil, the injections query for the current filetyepe will be used. See :h treesitter-language-injections.
-
-					-- NOTE: either `:e` or <leader>o to refresh codeblock once created
-					require("otter").activate(nil, true, true, nil)
-				end,
-			})
-		end,
-	},
+	-- {
+	-- 	"jmbuhr/otter.nvim",
+	-- 	dependencies = {
+	-- 		"nvim-treesitter/nvim-treesitter",
+	-- 	},
+	-- 	opts = {},
+	--
+	-- 	config = function()
+	-- 		require("otter").setup({
+	-- 			lsp = {
+	-- 				diagnostic_update_events = { "BufWritePost", "InsertLeave", "TextChanged" },
+	-- 			},
+	-- 		})
+	--
+	-- 		vim.api.nvim_create_autocmd("FileType", {
+	-- 			pattern = "markdown",
+	-- 			group = vim.api.nvim_create_augroup("OtterActivate", { clear = true }),
+	-- 			callback = function()
+	-- 				---@param languages table|nil List of languages to activate. If nil, all available languages will be activated.
+	-- 				---@param completion boolean|nil Enable completion for otter buffers. Default: true
+	-- 				---@param diagnostics boolean|nil Enable diagnostics for otter buffers. Default: true
+	-- 				---@param tsquery string|nil Explicitly provide a treesitter query. If nil, the injections query for the current filetyepe will be used. See :h treesitter-language-injections.
+	--
+	-- 				-- NOTE: either `:e` or <leader>o to refresh codeblock once created
+	-- 				require("otter").activate(nil, true, true, nil)
+	-- 			end,
+	-- 		})
+	-- 	end,
+	-- },
 }
