@@ -3,7 +3,14 @@
 return {
 	"folke/noice.nvim",
 	event = "VeryLazy",
-	opts = {},
+	opts = {
+		lsp = {
+			override = {
+				["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+				["vim.lsp.util.stylize_markdown"] = true,
+			},
+		},
+	},
 	dependencies = {
 		"MunifTanjim/nui.nvim",
 		-- OPTIONAL:
@@ -11,13 +18,7 @@ return {
 		--   If not available, we use `mini` as the fallback
 		"rcarriga/nvim-notify",
 	},
-	require("noice").setup({
-		-- show @ (macros) recording in noice
-		-- routes = {
-		--     {
-		--         view = "notify",
-		--         filter = { event = "msg_showmode" },
-		--     },
-		-- },
-	}),
+	config = function(_, opts)
+		require("noice").setup(opts)
+	end,
 }
