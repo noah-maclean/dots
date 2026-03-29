@@ -17,8 +17,12 @@ vim.opt.rtp:prepend(lazypath)
 
 require("vim-options")
 require("autocmds")
-require("lazy").setup("plugins")
-
-
--- enable lua_ls as it does not work with Mason (downloaded with pacman)
--- vim.lsp.enable("lua_ls")
+require("lazy").setup({
+	spec = {
+		{ import = "plugins" },
+	},
+	checker = { enabled = true },
+	ui = {
+		border = "rounded",
+	},
+})
