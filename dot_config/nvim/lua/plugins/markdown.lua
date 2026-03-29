@@ -36,12 +36,12 @@ return {
 			{ desc = "[T]oggle [M]arkdown rendering" }
 		),
 
-		vim.api.nvim_set_keymap(
-			"n",
-			"<leader>mS",
-			"<CMD>Markview splitToggle<CR>",
-			{ desc = "Toggle rendering [M]arkdown in [S]plit" }
-		),
+		-- vim.api.nvim_set_keymap(
+		-- 	"n",
+		-- 	"<leader>mS",
+		-- 	"<CMD>Markview splitToggle<CR>",
+		-- 	{ desc = "Toggle rendering [M]arkdown in [S]plit" }
+		-- ),
 
 		opts = {
 			preview = {
@@ -53,7 +53,8 @@ return {
 				linewise_hybrid_mode = true,
 
 				-- no delay to refresh preview
-				debounce = 0,
+				-- debounce = 0,
+				debounce = 50,
 			},
 
 			markdown = {
@@ -71,6 +72,12 @@ return {
 					marker_dot = { add_padding = false },
 					marker_parenthesis = { add_padding = false },
 				},
+				code_blocks = {
+					pad_amount = 0,
+				},
+			},
+			latex = {
+				enable = false,
 			},
 		},
 
@@ -100,6 +107,7 @@ return {
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 		},
+		ft = "markdown",
 		opts = {},
 	},
 	{
@@ -142,12 +150,27 @@ return {
 					confirm_destructive = true, -- Confirm before transpose/sort operations
 					keymaps = {
 						enabled = true,
-						prefix = "<leader>t",
+						prefix = "<localleader>t",
 						insert_mode_navigation = true, -- Alt+hjkl cell navigation
 					},
 				},
 				filetypes = { "markdown" }, -- Filetypes to enable the plugin for
 			})
+
+			-- autocommand to remove "smart backspace" as it messes with mini.pairs
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = "markdown",
+				callback = function(ev)
+					-- We use vim.schedule to ensure this runs AFTER markdown-plus has applied its mappings
+					vim.schedule(function()
+						pcall(vim.keymap.del, "i", "<BS>", { buffer = ev.buf })
+					end)
+				end,
+			})
 		end,
+	},
+	{
+		"lervag/vimtex",
+		lazy = false,
 	},
 }
