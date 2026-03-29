@@ -22,18 +22,21 @@ window#osd label {
 }
 
 window#osd progressbar:disabled,
-window#osd image:disabled {
+window#osd image:disabled,
+window#osd segmentedprogress:disabled {
   opacity: 0.5;
 }
 
-window#osd progressbar {
+window#osd progressbar,
+window#osd segmentedprogress {
   min-height: 6px;
   border-radius: 999px;
   background: transparent;
   border: none;
 }
 
-window#osd trough {
+window#osd trough,
+window#osd segment {
   min-height: inherit;
   border-radius: inherit;
   border: none;
@@ -41,7 +44,8 @@ window#osd trough {
   background: rgba(6, 8, 28, 0.4);
 }
 
-window#osd progress {
+window#osd progress,
+window#osd segment.active {
   min-height: inherit;
   border-radius: inherit;
   border: none;
