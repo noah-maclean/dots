@@ -87,4 +87,7 @@ return {
 		"nvim-mini/mini.hues",
 		version = false,
 	},
+	{
+		"danfry1/lume",
+	},
 }
