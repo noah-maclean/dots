@@ -48,6 +48,7 @@ return {
 
 						-- Link the filetypes so markdown has access to them
 						ls.filetype_extend("markdown", { "tex", "latex" })
+						-- ls.filetype_extend("html", { "javascript", "css" })
 
 						-- 3. Define the dynamic math zone check
 						local function in_mathzone()
@@ -85,6 +86,52 @@ return {
 							return false
 						end
 
+						-- check if in <script> tag in html
+						-- local function in_scriptzone()
+						-- 	-- Always show snippets if we are actually in a JS file
+						-- 	if
+						-- 		vim.bo.filetype == "javascript"
+						-- 		or vim.bo.filetype == "javascriptreact"
+						-- 		or vim.bo.filetype == "typescript"
+						-- 	then
+						-- 		return true
+						-- 	end
+						--
+						-- 	-- Treesitter check for HTML <script> tags
+						-- 	local has_ts, _ = pcall(vim.treesitter.get_parser)
+						-- 	if has_ts then
+						-- 		local node = vim.treesitter.get_node({ ignore_injections = false })
+						-- 		while node do
+						-- 			if node:type() == "script_element" then
+						-- 				return true
+						-- 			end
+						-- 			node = node:parent()
+						-- 		end
+						-- 	end
+						-- 	return false
+						-- end
+						--
+						-- -- check if in <style> tag in html
+						-- local function in_stylezone()
+						-- 	-- Always show snippets if we are actually in a CSS file
+						-- 	if vim.bo.filetype == "css" or vim.bo.filetype == "scss" then
+						-- 		return true
+						-- 	end
+						--
+						-- 	-- Treesitter check for HTML <style> tags
+						-- 	local has_ts, _ = pcall(vim.treesitter.get_parser)
+						-- 	if has_ts then
+						-- 		local node = vim.treesitter.get_node({ ignore_injections = false })
+						-- 		while node do
+						-- 			if node:type() == "style_element" then
+						-- 				return true
+						-- 			end
+						-- 			node = node:parent()
+						-- 		end
+						-- 	end
+						-- 	return false
+						-- end
+
 						-- custom snippets
 						-- s({...}) - defines the snippet - trig is the word you type to trugger it
 						-- t("...") is a text node (literal string that gets inserted) - use a table of strings t({"line 1", "line 2"}) for mutliline text
@@ -92,7 +139,7 @@ return {
 						ls.add_snippets("tex", {
 							s({ trig = "text", name = "Text", dscr = "\\text{text}" }, {
 								t("\\text{"),
-								i(1, "Text"),
+								i(1, "text"),
 								t("}"),
 								i(0),
 							}),
@@ -157,6 +204,25 @@ return {
 								end
 							end
 						end
+
+						-- local conditions_map = {
+						-- 	tex = in_mathzone,
+						-- 	latex = in_mathzone,
+						-- 	javascript = in_scriptzone,
+						-- 	css = in_stylezone,
+						-- }
+						--
+						-- for ft, condition_fn in pairs(conditions_map) do
+						-- 	local snips = ls.get_snippets(ft)
+						-- 	if snips then
+						-- 		for _, snip in pairs(snips) do
+						-- 			-- Hides the snippet from the visual menu outside of appropriate zones
+						-- 			snip.show_condition = condition_fn
+						-- 			-- BLOCKS the snippet from expanding when you press Tab outside of appropriate zones
+						-- 			snip.condition = condition_fn
+						-- 		end
+						-- 	end
+						-- end
 					end,
 				},
 			},
