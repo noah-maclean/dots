@@ -27,12 +27,12 @@ return {
 		opts = {},
 		config = function()
 			require("mason-lspconfig").setup({
-				auto_install = true,
 				-- ensure the following lsps are installed
 				-- lua_ls for lua
 				-- ts_ls for javascript (typescript)
 				-- cssls for css
-				ensure_installed = { "ts_ls", "cssls", "lua_ls@3.15.0" }, -- keep lua_ls at this version to avoid breakage
+				ensure_installed = { "ts_ls", "cssls", "lua_ls" },
+				automatic_enable = true,
 			})
 		end,
 	},
