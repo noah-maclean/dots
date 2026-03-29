@@ -49,7 +49,7 @@ return {
 					"markdown_inline",
 					"vim",
 				},
-				-- auto_install = true,
+				auto_install = true,
 				highlight = { enable = true },
 				indent = { enable = true },
 				-- fold = { enable = true },
@@ -91,7 +91,8 @@ return {
 		lazy = false,
 		opts = {
 			enable = true,
-			max_lines = 3,
+			-- max_lines = 3,
+			max_lines = 4,
 		},
 	},
 }
