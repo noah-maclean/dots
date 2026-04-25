@@ -46,9 +46,6 @@ opt.undofile = true
 -- turn swapfile off
 opt.swapfile = false
 
--- turn off search highlight
--- opt.hlsearch = false
-
 -- add a border to windows
 vim.o.winborder = "rounded"
 
@@ -62,6 +59,12 @@ vim.treesitter.query.set("markdown_inline", "injections", "")
 -- vim.api.nvim_set_option("clipboard", "unnamedplus")
 -- nvim_set_option is deprecated
 vim.api.nvim_set_option_value("clipboard", "unnamedplus", {scope="global"})
+
+-- turn off search highlight
+-- opt.hlsearch = false
+
+-- clear highlight with Esc in normal mode (useful if using <C-vim motions> for switching windows)
+-- vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- remove "s" keymap in normal and visual modes (only use "c")
 vim.keymap.set({ "n", "x" }, "s", "<Nop>")
