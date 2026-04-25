@@ -1,5 +1,13 @@
 # TODOs for dots
 
+## Chezmoi (MacOS)
+
+- create templates for files to have linux/macos specific details
+- create .chezmoiignore to ignore macos specific files on linux and vice versa
+- https://recca0120.github.io/en/2026/04/13/chezmoi-dotfiles-management/
+- https://github.com/timmyb824/dotfiles/blob/main/.chezmoiignore
+- https://medium.com/@tiomothybryant3/how-chezmoi-transformed-my-dotfile-management-across-multiple-systems-0db4029b518e
+
 ## Neovim
 
 - nvim-lint and conform for all file types
