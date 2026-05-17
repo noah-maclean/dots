@@ -68,7 +68,7 @@ end)
 hl.env("XCURSOR_SIZE", "14")
 hl.env("HYPRCURSOR_SIZE", "14")
 -- TODO: check screenshots go to correct dir
-hl.env("HYPRSHOT_DIR", "$HOME/Pictures/Screenshots/")
+hl.env("HYPRSHOT_DIR", os.getenv("HOME") .. "/Pictures/Screenshots/")
 hl.env("ELECTRON_OZONE_PLATFORM_HINT", "wayland")
 
 -----------------------
@@ -301,16 +301,16 @@ hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "up" }), { repeating = tru
 hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }), { repeating = true })
 
 -- Move windows with mainMod + shift + arrow keys
-hl.bind(mainMod .. " + SHIFT + left", hl.dsp.focus({ direction = "left" }), { repeating = true })
-hl.bind(mainMod .. " + SHIFT + right", hl.dsp.focus({ direction = "right" }), { repeating = true })
-hl.bind(mainMod .. " + SHIFT + up", hl.dsp.focus({ direction = "up" }), { repeating = true })
-hl.bind(mainMod .. " + SHIFT + down", hl.dsp.focus({ direction = "down" }), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + left", hl.dsp.window.move({ direction = "left" }), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.move({ direction = "right" }), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + up", hl.dsp.window.move({ direction = "up" }), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + down", hl.dsp.window.move({ direction = "down" }), { repeating = true })
 
 -- Move windows with mainMod + shift + vim motions
-hl.bind(mainMod .. " + SHIFT + H", hl.dsp.focus({ direction = "left" }), { repeating = true })
-hl.bind(mainMod .. " + SHIFT + L", hl.dsp.focus({ direction = "right" }), { repeating = true })
-hl.bind(mainMod .. " + SHIFT + K", hl.dsp.focus({ direction = "up" }), { repeating = true })
-hl.bind(mainMod .. " + SHIFT + J", hl.dsp.focus({ direction = "down" }), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + H", hl.dsp.window.move({ direction = "left" }), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.move({ direction = "right" }), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + K", hl.dsp.window.move({ direction = "up" }), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.move({ direction = "down" }), { repeating = true })
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
