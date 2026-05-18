@@ -242,6 +242,7 @@ hl.config({
 
 		touchpad = {
 			natural_scroll = true,
+			scroll_factor = 0.1,
 		},
 	},
 })
@@ -297,10 +298,14 @@ hl.bind(mainMod .. " + C", function()
 
 	if current_layout == "dwindle" then
 		hl.config({ general = { layout = "scrolling" } })
-		hl.dispatch(hl.dsp.exec_cmd("notify-send -u low -i 'view-dual-symbolic' 'Layout Switched' 'Mode: <i>Scrolling</i>'"))
+		hl.dispatch(
+			hl.dsp.exec_cmd("notify-send -u low -i 'view-dual-symbolic' 'Layout Switched' 'Mode: <i>Scrolling</i>'")
+		)
 	else
 		hl.config({ general = { layout = "dwindle" } })
-		hl.dispatch(hl.dsp.exec_cmd("notify-send -u low -i 'view-grid-symbolic' 'Layout Switched' 'Mode: <i>Dwindle</i>'"))
+		hl.dispatch(
+			hl.dsp.exec_cmd("notify-send -u low -i 'view-grid-symbolic' 'Layout Switched' 'Mode: <i>Dwindle</i>'")
+		)
 	end
 end)
 
@@ -531,8 +536,8 @@ hl.window_rule({
 hl.window_rule({
 	name = "update-rules",
 	match = {
-        class = "^(com.update.sys)$"
-    },
+		class = "^(com.update.sys)$",
+	},
 
 	float = true,
 	center = true,
@@ -542,8 +547,8 @@ hl.window_rule({
 hl.window_rule({
 	name = "sinkswitch",
 	match = {
-        class = "^(com.sinkswitch.sys)$"
-    },
+		class = "^(com.sinkswitch.sys)$",
+	},
 	monitor = "eDP-1",
 	float = true,
 	move = { 1096, 64 },
@@ -551,30 +556,37 @@ hl.window_rule({
 })
 
 hl.window_rule({
-    name = "zen-opaque",
-    match = {
-        class = "^(zen)$"
-    },
-    opaque = true
+	name = "zen-opaque",
+	match = {
+		class = "^(zen)$",
+	},
+	opaque = true,
 })
 hl.window_rule({
-    name = "libreoffice-opaque",
-    match = {
-        class = "^(libreoffice-impress)$"
-    },
-    opaque = true
+	name = "libreoffice-opaque",
+	match = {
+		class = "^(libreoffice-impress)$",
+	},
+	opaque = true,
 })
 hl.window_rule({
-    name = "obsidian-opaque",
-    match = {
-        class = "^(obsidian)$"
-    },
-    opaque = true
+	name = "obsidian-opaque",
+	match = {
+		class = "^(obsidian)$",
+	},
+	opaque = true,
 })
 hl.window_rule({
-    name = "eclipse-opaque",
-    match = {
-        class = "^(Eclipse)$"
-    },
-    opaque = true
+	name = "eclipse-opaque",
+	match = {
+		class = "^(Eclipse)$",
+	},
+	opaque = true,
+})
+hl.window_rule({
+	name = "helium-opaque",
+	match = {
+		class = "^(helium)$",
+	},
+	opaque = true,
 })
