@@ -38,6 +38,8 @@ local terminal = "ghostty"
 local fileManager = "thunar"
 -- local menu        = "wofi --show drun"
 local menu = "vicinae toggle"
+-- local browser = "zen-browser"
+local browser = "helium-browser"
 
 -------------------
 ---- AUTOSTART ----
@@ -285,8 +287,22 @@ hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + T", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("pkill waybar && waybar && disown"))
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))
+hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + S", hl.dsp.layout("togglesplit")) -- dwindle only
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
+hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("waypaper"))
+hl.bind(mainMod .. " + C", function()
+	local current_layout = hl.get_config("general.layout")
+
+	if current_layout == "dwindle" then
+		hl.config({ general = { layout = "scrolling" } })
+		hl.dispatch(hl.dsp.exec_cmd("notify-send -u low -i 'view-dual-symbolic' 'Layout Switched' 'Mode: <i>Scrolling</i>'"))
+	else
+		hl.config({ general = { layout = "dwindle" } })
+		hl.dispatch(hl.dsp.exec_cmd("notify-send -u low -i 'view-grid-symbolic' 'Layout Switched' 'Mode: <i>Dwindle</i>'"))
+	end
+end)
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }), { repeating = true })
