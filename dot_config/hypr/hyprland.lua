@@ -409,10 +409,14 @@ hl.bind(
 	hl.dsp.exec_cmd("swayosd-client --output-volume mute-toggle"),
 	{ locked = true, repeating = true }
 )
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("swayosd-client --brightness +10"), { locked = true, repeating = true })
+hl.bind(
+    "XF86MonBrightnessUp",
+    hl.dsp.exec_cmd("swayosd-client --brightness +10"),
+    { locked = true, repeating = true }
+)
 hl.bind(
 	"XF86MonBrightnessDown",
-	hl.dsp.exec_cmd("--brightness -10 --min-brightness 0"),
+	hl.dsp.exec_cmd("swayosd-client --brightness -10 --min-brightness 0"),
 	{ locked = true, repeating = true }
 )
 
