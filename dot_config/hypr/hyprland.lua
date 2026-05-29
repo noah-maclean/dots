@@ -221,6 +221,7 @@ hl.config({
 	misc = {
 		force_default_wallpaper = 0,
 		disable_hyprland_logo = true,
+		disable_splash_rendering = true,
 	},
 })
 
@@ -409,11 +410,7 @@ hl.bind(
 	hl.dsp.exec_cmd("swayosd-client --output-volume mute-toggle"),
 	{ locked = true, repeating = true }
 )
-hl.bind(
-    "XF86MonBrightnessUp",
-    hl.dsp.exec_cmd("swayosd-client --brightness +10"),
-    { locked = true, repeating = true }
-)
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("swayosd-client --brightness +10"), { locked = true, repeating = true })
 hl.bind(
 	"XF86MonBrightnessDown",
 	hl.dsp.exec_cmd("swayosd-client --brightness -10 --min-brightness 0"),
