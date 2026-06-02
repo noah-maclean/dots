@@ -618,14 +618,14 @@ hl.window_rule({
 })
 
 hl.window_rule({
-	name = "sinkswitch",
+	name = "sinkswitch-rules",
 	match = {
 		class = "^(com.sinkswitch.sys)$",
 	},
-	monitor = "eDP-1",
+
 	float = true,
-	move = { 1096, 64 },
 	size = { 800, 160 },
+	move = { "(monitor_w - window_w - 8)", 74 },
 })
 
 hl.window_rule({
