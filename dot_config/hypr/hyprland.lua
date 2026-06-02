@@ -21,6 +21,7 @@ hl.monitor({
 	position = "auto",
 	scale = "1",
 })
+
 -- random monitors
 hl.monitor({
 	output = "",
@@ -78,7 +79,6 @@ end)
 
 hl.env("XCURSOR_SIZE", "14")
 hl.env("HYPRCURSOR_SIZE", "14")
--- TODO: check screenshots go to correct dir
 hl.env("HYPRSHOT_DIR", os.getenv("HOME") .. "/Pictures/Screenshots")
 hl.env("ELECTRON_OZONE_PLATFORM_HINT", "wayland")
 
@@ -115,6 +115,10 @@ hl.config({
 		col = {
 			active_border = { colors = { "rgba(6f00ffee)", "rgba(00b3ffee)" }, angle = 45 },
 			inactive_border = "rgba(595959aa)",
+		},
+
+		snap = {
+			enabled = true,
 		},
 
 		-- Set to true to enable resizing windows by clicking and dragging on borders and gaps
@@ -304,8 +308,8 @@ hl.bind(mainMod .. " + S", hl.dsp.layout("togglesplit")) -- dwindle only
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized" }))
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("waypaper"))
+-- Cycle layout for current workspace (https://wiki.hypr.land/Configuring/Advanced-and-Cool/Uncommon-tips-and-tricks/#cycle-layout-for-current-workspace)
 hl.bind(mainMod .. " + C", function()
-	-- local current_layout = hl.get_config("general.layout")
 	local workspace = hl.get_active_workspace()
 
 	if workspace and workspace.name then
@@ -313,30 +317,60 @@ hl.bind(mainMod .. " + C", function()
 		if current_layout == "dwindle" then
 			hl.workspace_rule({ workspace = workspace.name, layout = "scrolling" })
 			hl.dispatch(
-				hl.dsp.exec_cmd("notify-send -u low -i 'view-dual-symbolic' 'Layout Switched on Workspace " .. workspace.name .."' 'Mode: <i>Scrolling</i>'")
+				hl.dsp.exec_cmd(
+					"notify-send -u low -i 'view-dual-symbolic' 'Layout Switched on Workspace "
+						.. workspace.name
+						.. "' 'Mode: <i>Scrolling</i>'"
+				)
 			)
 		else
 			hl.workspace_rule({ workspace = workspace.name, layout = "dwindle" })
 			hl.dispatch(
-				hl.dsp.exec_cmd("notify-send -u low -i 'view-grid-symbolic' 'Layout Switched on Workspace " .. workspace.name .."' 'Mode: <i>Dwindle</i>'")
+				hl.dsp.exec_cmd(
+					"notify-send -u low -i 'view-grid-symbolic' 'Layout Switched on Workspace "
+						.. workspace.name
+						.. "' 'Mode: <i>Dwindle</i>'"
+				)
 			)
 		end
 	end
 end)
+-- Toggle animations/blur/etc hotkey (https://wiki.hypr.land/Configuring/Advanced-and-Cool/Uncommon-tips-and-tricks/#toggle-animationsbluretc-hotkey)
+hl.bind(mainMod .. " + F12", function()
+	local animations_disabled = (hl.get_config("animations.enabled") == false)
 
--- 	if current_layout == "dwindle" then
--- 		-- hl.config({ general = { layout = "scrolling" } })
--- 		hl.workspace_rule({ workspace = workspace.name })
--- 		hl.dispatch(
--- 			hl.dsp.exec_cmd("notify-send -u low -i 'view-dual-symbolic' 'Layout Switched' 'Mode: <i>Scrolling</i>'")
--- 		)
--- 	else
--- 		hl.config({ general = { layout = "dwindle" } })
--- 		hl.dispatch(
--- 			hl.dsp.exec_cmd("notify-send -u low -i 'view-grid-symbolic' 'Layout Switched' 'Mode: <i>Dwindle</i>'")
--- 		)
--- 	end
--- end)
+	if animations_disabled then
+		hl.dispatch(hl.dsp.exec_cmd("notify-send -u low -i 'window-new-symbolic' 'Animations and Gaps Enabled'"))
+		hl.dispatch(hl.dsp.exec_cmd("waybar"))
+		hl.exec_cmd("hyprctl reload")
+		return
+	end
+
+	hl.config({
+		general = {
+			gaps_in = 0,
+			gaps_out = 0, -- Disable gaps
+			border_size = 2,
+			col = {
+				active_border = "0xffffffff",
+				inactive_border = "0xff444444",
+			},
+		},
+
+		animations = {
+			enabled = false, -- Disable animations
+		},
+
+		-- Disable blur, shadow and window rounding
+		decoration = {
+			shadow = { enabled = false },
+			blur = { enabled = false },
+			rounding = 0,
+		},
+	})
+	hl.dispatch(hl.dsp.exec_cmd("pkill waybar"))
+	hl.dispatch(hl.dsp.exec_cmd("notify-send -u low -i 'image-missing-symbolic' 'Animations and Gaps Disabled'"))
+end)
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }), { repeating = true })
@@ -381,6 +415,16 @@ hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+
+hl.bind(mainMod .. " + ALT + L", hl.dsp.window.resize({ x = 30, y = 0, relative = true }), { repeating = true })
+hl.bind(mainMod .. " + ALT + H", hl.dsp.window.resize({ x = -30, y = 0, relative = true }), { repeating = true })
+hl.bind(mainMod .. " + ALT + K", hl.dsp.window.resize({ x = 0, y = -30, relative = true }), { repeating = true })
+hl.bind(mainMod .. " + ALT + J", hl.dsp.window.resize({ x = 0, y = 30, relative = true }), { repeating = true })
+
+hl.bind(mainMod .. " + ALT + right", hl.dsp.window.resize({ x = 30, y = 0, relative = true }), { repeating = true })
+hl.bind(mainMod .. " + ALT + left", hl.dsp.window.resize({ x = -30, y = 0, relative = true }), { repeating = true })
+hl.bind(mainMod .. " + ALT + up", hl.dsp.window.resize({ x = 0, y = -30, relative = true }), { repeating = true })
+hl.bind(mainMod .. " + ALT + down", hl.dsp.window.resize({ x = 0, y = 30, relative = true }), { repeating = true })
 
 -- Laptop multimedia keys for volume and LCD brightness
 -- hl.bind(
