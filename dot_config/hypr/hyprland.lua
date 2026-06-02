@@ -305,20 +305,38 @@ hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized" }))
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("waypaper"))
 hl.bind(mainMod .. " + C", function()
-	local current_layout = hl.get_config("general.layout")
+	-- local current_layout = hl.get_config("general.layout")
+	local workspace = hl.get_active_workspace()
 
-	if current_layout == "dwindle" then
-		hl.config({ general = { layout = "scrolling" } })
-		hl.dispatch(
-			hl.dsp.exec_cmd("notify-send -u low -i 'view-dual-symbolic' 'Layout Switched' 'Mode: <i>Scrolling</i>'")
-		)
-	else
-		hl.config({ general = { layout = "dwindle" } })
-		hl.dispatch(
-			hl.dsp.exec_cmd("notify-send -u low -i 'view-grid-symbolic' 'Layout Switched' 'Mode: <i>Dwindle</i>'")
-		)
+	if workspace and workspace.name then
+		local current_layout = workspace.tiled_layout
+		if current_layout == "dwindle" then
+			hl.workspace_rule({ workspace = workspace.name, layout = "scrolling" })
+			hl.dispatch(
+				hl.dsp.exec_cmd("notify-send -u low -i 'view-dual-symbolic' 'Layout Switched on Workspace " .. workspace.name .."' 'Mode: <i>Scrolling</i>'")
+			)
+		else
+			hl.workspace_rule({ workspace = workspace.name, layout = "dwindle" })
+			hl.dispatch(
+				hl.dsp.exec_cmd("notify-send -u low -i 'view-grid-symbolic' 'Layout Switched on Workspace " .. workspace.name .."' 'Mode: <i>Dwindle</i>'")
+			)
+		end
 	end
 end)
+
+-- 	if current_layout == "dwindle" then
+-- 		-- hl.config({ general = { layout = "scrolling" } })
+-- 		hl.workspace_rule({ workspace = workspace.name })
+-- 		hl.dispatch(
+-- 			hl.dsp.exec_cmd("notify-send -u low -i 'view-dual-symbolic' 'Layout Switched' 'Mode: <i>Scrolling</i>'")
+-- 		)
+-- 	else
+-- 		hl.config({ general = { layout = "dwindle" } })
+-- 		hl.dispatch(
+-- 			hl.dsp.exec_cmd("notify-send -u low -i 'view-grid-symbolic' 'Layout Switched' 'Mode: <i>Dwindle</i>'")
+-- 		)
+-- 	end
+-- end)
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }), { repeating = true })
