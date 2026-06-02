@@ -29,6 +29,15 @@ hl.monitor({
 	scale = "auto",
 })
 
+hl.on("monitor.added", function(monitor)
+	hl.exec_cmd("notify-send -u low -i 'video-display-symbolic' 'Monitor connected' '" .. monitor.name .. "'")
+	hl.exec_cmd("waypaper --restore")
+end)
+
+hl.on("monitor.removed", function(monitor)
+	hl.exec_cmd("notify-send -u low -i 'video-display-symbolic' 'Monitor disconnected' '" .. monitor.name .. "'")
+end)
+
 ---------------------
 ---- MY PROGRAMS ----
 ---------------------
@@ -70,7 +79,7 @@ end)
 hl.env("XCURSOR_SIZE", "14")
 hl.env("HYPRCURSOR_SIZE", "14")
 -- TODO: check screenshots go to correct dir
-hl.env("HYPRSHOT_DIR", os.getenv("HOME") .. "/Pictures/Screenshots/")
+hl.env("HYPRSHOT_DIR", os.getenv("HOME") .. "/Pictures/Screenshots")
 hl.env("ELECTRON_OZONE_PLATFORM_HINT", "wayland")
 
 -----------------------
@@ -292,7 +301,8 @@ hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + S", hl.dsp.layout("togglesplit")) -- dwindle only
-hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized" }))
+hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("waypaper"))
 hl.bind(mainMod .. " + C", function()
 	local current_layout = hl.get_config("general.layout")
