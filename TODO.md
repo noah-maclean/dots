@@ -13,7 +13,7 @@
 - nvim-lint and conform for all file types
 - remove nvim-lspconfig and mason-lspconfig and have an lsp directory with information from nvim-lspconfig repo and enable lsp manually (`vim.lsp.enable()`)
 - create a new config with vim.pack when 0.12 is out
-- switch from alpha to snacks dashboard
+- switch from alpha to snacks dashboard (done on macbook)
 
 ## Styling
 
@@ -32,12 +32,13 @@
         - [tokyonight vscode](https://github.com/tokyo-night/tokyo-night-vscode-theme)
 - create tokyonight-night and tokyonight-moon?
 
-- replace gui applications in waybar with tuis OR guis with vim bindings
+- [x] replace gui applications in waybar with tuis OR guis with vim bindings
     - nmrs - nmtui (now that colours are fixed)
     - adw-bluetooth - bluetui
     - pavucontrol - pulsemixer
 
-- [rename outputs (sinks)](https://github.com/Seyloria/sinkswitch?tab=readme-ov-file#abc-rename-outputs-sinks)
+- [x] [rename outputs (sinks)](https://github.com/Seyloria/sinkswitch?tab=readme-ov-file#abc-rename-outputs-sinks)
+    - (`-nick` flag used instead)
     
 ## Install Script
 
@@ -50,13 +51,14 @@
 - look into more groups in waybar
     - hardware group
     - power group to remove need for wlogout?
-- re-add sinkswitch to waybar
-    - get bluetooth devices working?
+- [x] re-add sinkswitch to waybar
+    - [x] get bluetooth devices working?
     
 ## zsh
 
-- remove oh-my-zsh and just use .zshrc
+- remove oh-my-zsh and just use .zshrc (done on macbook)
     - add git keybindings from omz
     - install p10k, syntax highlighting, autosuggestions, etc. manually
     - look at common-aliases plugin in omz repo
 - try oh my posh
+
