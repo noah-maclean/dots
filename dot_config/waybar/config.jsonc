@@ -125,7 +125,7 @@
     "format-source-muted": "",
     "on-click": "pavucontrol",
     "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "on-click-middle": "hyprctl dispatch hl.dsp.exec_cmd '\"[workspace special:sinkswitch] ghostty --class='com.sinkswitch.sys' -e ~/.config/waybar/sinkswitch.sh -exclude 46\"'",
+    "on-click-middle": "hyprctl dispatch hl.dsp.exec_cmd '\"[workspace special:sinkswitch] ghostty --class='com.sinkswitch.sys' -e ~/.config/waybar/sinkswitch.sh -nick -notify -sync -color-selection green\"'",
     "format-icons": {
       // "headphone": "",
       // "hands-free": "",
