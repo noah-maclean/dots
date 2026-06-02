@@ -86,6 +86,8 @@
     },
   },
 
+  // TODO: change tooltips to correct apps for network, bluetooth and pulseaudio
+
   "network": {
     // "format": " ",
     // "format": "󰤯 ",
@@ -105,7 +107,8 @@
     "tooltip-format-disconnected": "Configure network (nmrs)",
     "max-length": 50,
     // "on-click": "nmtui",
-    "on-click": "nmrs",
+    "on-click": "ghostty --class='com.nmtui.sys' -e zsh -ic nmtui",
+    "on-click-right": "nmrs",
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
     "interval": 10,
   },
@@ -123,9 +126,11 @@
     "format-muted": "  {volume}%",
     "format-source": " {volume}%",
     "format-source-muted": "",
-    "on-click": "pavucontrol",
+    // "on-click": "pavucontrol",
+    "on-click-middle": "pavucontrol",
     "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "on-click-middle": "hyprctl dispatch hl.dsp.exec_cmd '\"[workspace special:sinkswitch] ghostty --class='com.sinkswitch.sys' -e ~/.config/waybar/sinkswitch.sh -nick -notify -sync -color-selection green\"'",
+    // "on-click-middle": "hyprctl dispatch hl.dsp.exec_cmd '\"[workspace special:sinkswitch] ghostty --class='com.sinkswitch.sys' -e ~/.config/waybar/sinkswitch.sh -nick -notify -sync -color-selection green\"'",
+    "on-click": "hyprctl dispatch hl.dsp.exec_cmd '\"[workspace special:sinkswitch] ghostty --class='com.sinkswitch.sys' -e ~/.config/waybar/sinkswitch.sh -nick -notify -sync -color-selection green\"'",
     "format-icons": {
       // "headphone": "",
       // "hands-free": "",
@@ -147,7 +152,9 @@
       "connected": "󰂱",
     },
     // "on-click": "blueman-manager",
-    "on-click": "adw-bluetooth",
+    // "on-click": "adw-bluetooth",
+    "on-click": "ghostty --class='com.bluetui.sys' -e sh -c bluetui",
+    "on-click-right": "adw-bluetooth",
     // "tooltip-format": "Configure bluetooth (blueman-manager)",
     "tooltip-format": "Configure bluetooth (adw-bluetooth)",
     "tooltip-format-connected": "Configure devices (blueman-manager):\n{device_enumerate}",

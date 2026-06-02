@@ -585,6 +585,17 @@ hl.window_rule({
 })
 
 hl.window_rule({
+	name = "bluetui-rules",
+	match = {
+		class = "^(com.bluetui.sys)$",
+	},
+
+	float = true,
+	center = true,
+	size = { 750, 500 },
+})
+
+hl.window_rule({
 	name = "pavucontrol-rules",
 	match = {
 		class = "^(org.pulseaudio.pavucontrol)$",
@@ -603,7 +614,18 @@ hl.window_rule({
 
 	float = true,
 	center = true,
-	size = { 450, 600 }, -- TODO: wont go smaller than 596 600 for some reason
+	size = { 450, 600 },
+})
+
+hl.window_rule({
+	name = "nmtui-rules",
+	match = {
+		class = "^(com.nmtui.sys)$",
+	},
+
+	float = true,
+	center = true,
+	size = { 450, 600 },
 })
 
 hl.window_rule({
