@@ -350,7 +350,7 @@ hl.bind(mainMod .. " + F12", function()
 		general = {
 			gaps_in = 0,
 			gaps_out = 0, -- Disable gaps
-			border_size = 2,
+			border_size = 1,
 			col = {
 				active_border = "0xffffffff",
 				inactive_border = "0xff444444",
