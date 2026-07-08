@@ -14,6 +14,10 @@ return {
 				.. vim.fn.expand("~")
 				.. "/Documents/Uni Notes/*.md",
 			"BufNewFile " .. vim.fn.expand("~") .. "/Documents/Uni Notes/*.md",
+			"BufReadPre "
+				.. vim.fn.expand("~")
+				.. "/Documents/homelab/vault/*.md",
+			"BufNewFile " .. vim.fn.expand("~") .. "/Documents/homelab/vault/*.md",
 		},
 		---@module 'obsidian'
 		---@type obsidian.config
@@ -31,6 +35,10 @@ return {
 				{
 					name = "uni notes",
 					path = "~/Documents/Uni Notes/",
+				},
+				{
+					name = "homelab",
+					path = "~/Documents/homelab/vault/",
 				},
 			},
 			frontmatter = {
