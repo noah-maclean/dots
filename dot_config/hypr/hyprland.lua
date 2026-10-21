@@ -63,9 +63,9 @@ local browser = "helium-browser"
 hl.on("hyprland.start", function()
 	hl.exec_cmd("waypaper --restore")
 	hl.exec_cmd("hypridle")
-	hl.exec_cmd("waybar")
+	hl.exec_cmd("quickshell")
 	hl.exec_cmd("swayosd-server")
-	hl.exec_cmd("swaync")
+	-- hl.exec_cmd("swaync") -- Handled natively by Quickshell NotificationServer
 	hl.exec_cmd("batsignal -b -e -p")
 	hl.exec_cmd("/usr/lib/geoclue-2.0/demos/agent") -- geoclue location service
 	hl.exec_cmd("vicinae server")
@@ -300,7 +300,7 @@ hl.bind(
 )
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + T", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("pkill waybar && waybar && disown"))
+hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("pkill quickshell; quickshell & disown"))
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
@@ -341,7 +341,7 @@ hl.bind(mainMod .. " + F12", function()
 
 	if animations_disabled then
 		hl.dispatch(hl.dsp.exec_cmd("notify-send -u low -i 'window-new-symbolic' 'Animations and Gaps Enabled'"))
-		hl.dispatch(hl.dsp.exec_cmd("waybar"))
+		hl.dispatch(hl.dsp.exec_cmd("quickshell"))
 		hl.exec_cmd("hyprctl reload")
 		return
 	end
@@ -368,7 +368,7 @@ hl.bind(mainMod .. " + F12", function()
 			rounding = 0,
 		},
 	})
-	hl.dispatch(hl.dsp.exec_cmd("pkill waybar"))
+	hl.dispatch(hl.dsp.exec_cmd("pkill quickshell"))
 	hl.dispatch(hl.dsp.exec_cmd("notify-send -u low -i 'image-missing-symbolic' 'Animations and Gaps Disabled'"))
 end)
 
