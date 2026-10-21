@@ -78,9 +78,6 @@ return {
 		"EdenEast/nightfox.nvim",
 	},
 	{
-		"nyoom-engineering/oxocarbon.nvim",
-	},
-	{
 		"Mofiqul/dracula.nvim",
 	},
 	{
